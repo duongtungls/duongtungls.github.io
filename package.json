@@ -3,12 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "bootstrap": "^4.2.1",
+    "dotenv": "^6.2.0",
+    "dotenv-expand": "^4.2.0",
+    "firebase": "^5.8.2",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.1",
+    "react-anchor-link-smooth-scroll": "^1.0.11",
+    "react-countup": "^4.0.0",
+    "react-dom": "^16.8.1",
+    "react-image": "^2.0.0",
+    "react-modal": "^3.8.1",
+    "react-on-screen": "^2.1.1",
+    "react-parallax": "^2.1.0",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3",
+    "react-typed": "^1.1.0",
+    "reactstrap": "^7.1.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -21,5 +42,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

@@ -1,0 +1,2643 @@
+/*@charset "utf-8";*/
+/*
+/*	Copyright (c) 2018 Marketify
+/*	Author: Marketify
+/*	This file is made for CURRENT TEMPLATE
+
+
+	01) ARLO BASE
+	02) ARLO CONTENT
+	03) ARLO ABOUT
+	04) ARLO SERVICES
+	05) ARLO COUNTERBOX
+	06) ARLO PORTFOLIO
+	07) ARLO TESTIMONIALS
+	08) ARLO NEWS
+	09) ARLO CONTACT
+	09) ARLO CONTACT
+	10) ARLO TO TOP
+	11) ARLO PARTICLE HOMEPAGE
+	12) ARLO RIPPLE HOMEPAGE
+	13) ARLO MEDIA QUERIES (FOR SMALL DEVIVES)
+
+
+/*---------------------------------------------------*/
+/*	01) ARLO BASE
+/*---------------------------------------------------*/
+
+html {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  font-weight: 400;
+}
+
+svg {
+  fill: currentcolor;
+  width: 15px;
+  height: 15px;
+}
+
+img.svg {
+  width: 15px;
+  height: 15px;
+}
+
+.arlo_tm_wrapper_all, .arlo_tm_section, .arlo_tm_content {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+#ripple {
+  position: relative;
+  z-index: 0;
+}
+
+.arlo_tm_content {
+  position: relative;
+  z-index: 2;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #333;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #333;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #333;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #333;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #333;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #333;
+}
+
+.arlo_tm_preloader {
+  position: fixed;
+  background-color: #fff;
+  z-index: 9999999;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: .2s all ease;
+  -o-transition: .2s all ease;
+  transition: .2s all ease;
+  -webkit-transition-delay: .5s;
+  -o-transition-delay: .5s;
+  transition-delay: .5s;
+  .spinner_wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 33333;
+  }
+  &.loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: #041230;
+    -webkit-transition: .7s all ease;
+    -o-transition: .7s all ease;
+    transition: .7s all ease;
+  }
+  &:before {
+    top: 0;
+    left: 0;
+  }
+  &:after {
+    bottom: 0;
+    left: 0;
+  }
+  &.loaded {
+    &:before, &:after {
+      height: 0%;
+    }
+  }
+}
+
+/*---------------------------------------------------*/
+/*	02) ARLO CONTENT
+/*---------------------------------------------------*/
+
+.arlo_tm_leftpart_wrap {
+  width: 300px;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #041230;
+  z-index: 100;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  &.hide, &.opened {
+    left: -300px;
+  }
+  .logo_wrap {
+    background-color: #041230;
+    padding: 50px 20px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .menu_list_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    padding: 0px 20px 0px 60px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    ul {
+      margin: 0px;
+      list-style-type: none;
+      li {
+        margin: 0px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
+        a {
+          text-decoration: none;
+          color: #fff;
+          font-family: "Montserrat";
+          font-size: 16px;
+          font-weight: 500;
+          text-transform: uppercase;
+          position: relative;
+          display: inline-block;
+          padding-bottom: 19px;
+          -webkit-transition: all .3s ease;
+          -moz-transition: all .3s ease;
+          -ms-transition: all .3s ease;
+          -o-transition: all .3s ease;
+          transition: all .3s ease;
+          &:before {
+            position: absolute;
+            content: "";
+            height: 2px;
+            width: 0px;
+            background-color: #E3872D;
+            top: 14px;
+            transform: translateY(-50%);
+            left: 100%;
+            margin-left: 10px;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            -ms-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+          }
+          &:hover {
+            color: #E3872D;
+            &:before {
+              width: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .leftpart_bottom {
+    position: absolute;
+    left: 60px;
+    bottom: 38px;
+    .social_wrap {
+      width: 100%;
+      height: auto;
+      float: left;
+      position: relative;
+      left: -5px;
+      margin-bottom: 10px;
+      -webkit-box-sizing: border-box;
+      /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;
+      /* Firefox, other Gecko */
+      box-sizing: border-box;
+      /* Opera/IE 8+ */
+      ul {
+        margin: 0px;
+        list-style-type: none;
+        li {
+          margin: 0px 10px 0px 0px;
+          display: inline-block;
+          &:last-child {
+            margin-right: 0px;
+          }
+          a {
+            text-decoration: none;
+            color: #fff;
+            -webkit-transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            -ms-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+            &:hover {
+              color: #E3872D;
+            }
+          }
+        }
+      }
+    }
+  }
+  .arlo_tm_resize {
+    position: absolute;
+    right: 0px;
+    bottom: 20%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #E3872D;
+    /*	display: inline-block;*/
+    text-decoration: none;
+    z-index: 200;
+    display: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &.opened {
+      right: -30px;
+    }
+    i {
+      color: #fff;
+      transform: rotate(0deg);
+      position: absolute;
+      left: 6px;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      &.opened {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+
+.arlo_tm_rightpart {
+  width: 100%;
+  height: auto;
+  float: left;
+  padding-left: 300px;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  &.full, &.opened {
+    padding-left: 0px;
+  }
+  .rightpart_inner {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+}
+
+.arlo_tm_hero_header_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 100px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_universal_box_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .bg_wrap {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+  }
+  .overlay_image {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 15;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .overlay_video {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 15;
+    overflow: hidden;
+    video {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      object-fit: cover;
+    }
+  }
+  .overlay_color {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 20;
+  }
+  .content {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    position: relative;
+    z-index: 25;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .overlay_image.hero {
+    background-image: url(/image/hero/bg.jpg);
+  }
+  .overlay_color.hero {
+    background-color: rgba(7, 23, 55, 0.8);
+  }
+  .content.hero {
+    height: 100vh;
+  }
+}
+
+.arlo_tm_hero_header_wrap {
+  .inner_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding: 0px 20px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .image_wrap {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    margin-bottom: 38px;
+    img {
+      border-radius: 100%;
+      border: 8px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+  .name_holder h3 {
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 300;
+    span {
+      font-weight: 500;
+      color: #E3872D;
+    }
+  }
+  .text_typing {
+    width: 100%;
+    height: auto;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    p {
+      color: #fff;
+      font-size: 24px;
+      font-family: "Montserrat";
+    }
+  }
+}
+
+.arlo_tm_animation_text_word {
+  font-weight: 600;
+  line-height: 1;
+  font-family: "Montserrat";
+}
+
+.arlo_tm_about_wrap .arlo_tm_animation_text_word {
+  color: #E3872D;
+}
+
+.arlo_tm_arrow_wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  margin-left: -21px;
+  z-index: 55;
+  &.bounce {
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+  }
+}
+
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+
+/*---------------------------------------------------*/
+/*	03) ARLO ABOUT
+/*---------------------------------------------------*/
+
+.arlo_tm_title_holder {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  text-align: left;
+  padding-bottom: 100px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  &.contact {
+    padding-bottom: 93px;
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    width: 6px;
+    height: 72px;
+    background-color: #E3872D;
+    top: 2px;
+  }
+  h3 {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -.5px;
+    padding-left: 25px;
+    line-height: 1;
+    /*	font-style: italic;*/
+  }
+  span {
+    font-size: 16px;
+    font-family: "Montserrat";
+    padding-left: 25px;
+  }
+}
+
+.arlo_tm_about_wrapper_all {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_main_title_holder {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  text-align: left;
+  margin-bottom: 120px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  &.about {
+    text-align: left;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+  h3 {
+    font-weight: 900;
+    font-family: "Montserrat";
+    color: #041230;
+    font-size: 30px;
+    line-height: 1;
+    span {
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 4px;
+        background-color: #041230;
+        letter-spacing: 0px;
+        bottom: -10px;
+      }
+    }
+  }
+}
+
+.arlo_tm_about_wrapper_all {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_main_title_holder {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  text-align: left;
+  margin-bottom: 120px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  &.about {
+    text-align: left;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+  h3 {
+    font-weight: 900;
+    font-family: "Montserrat";
+    color: #041230;
+    font-size: 30px;
+    line-height: 1;
+    span {
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 4px;
+        background-color: #041230;
+        letter-spacing: 0px;
+        bottom: -10px;
+      }
+    }
+  }
+}
+
+.arlo_tm_about_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  padding-bottom: 122px;
+  position: relative;
+  margin-top: -6px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .author_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .leftbox {
+    width: 35%;
+    float: left;
+    height: auto;
+    padding-right: 40px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    .about_image_wrap {
+      position: relative;
+      .image {
+        position: absolute;
+        z-index: 2;
+        .inner {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+      .border .inner {
+        position: absolute;
+        top: 25px !important;
+        bottom: -25px !important;
+        left: 25px !important;
+        right: -25px !important;
+        border: 10px solid #041230;
+      }
+      img {
+        opacity: 0;
+      }
+    }
+  }
+  .rightbox {
+    width: 65%;
+    float: right;
+    padding: 0px 0px 0px 65px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .subtitle {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    p {
+      font-family: "Montserrat";
+      color: #333;
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+  .definition {
+    margin-bottom: 15px;
+    p {
+      color: #333;
+      strong {
+        color: #E3872D;
+      }
+    }
+  }
+  .about_short_contact_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    margin-bottom: 13px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .arlo_tm_main_title_holder {
+    margin-bottom: 40px;
+  }
+  .about_short_contact_wrap ul {
+    margin: 0px;
+    list-style-type: none;
+    li {
+      margin: 0px 0px 10px 0px;
+      width: 50%;
+      float: left;
+      &:nth-of-type(2n) {
+        clear: right;
+      }
+    }
+  }
+}
+
+.about_short_contact_wrap ul li label {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 13px;
+  color: #000;
+  min-width: 85px;
+  display: inline-block;
+}
+
+.arlo_tm_about_wrap {
+  .about_short_contact_wrap ul li a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &:hover {
+      color: #BD0A0D;
+    }
+  }
+  .buttons_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    ul {
+      margin: 0px;
+      list-style-type: none;
+      li {
+        margin: 0px 30px 10px 0px;
+        float: left;
+        &:last-child {
+          margin-right: 0px;
+        }
+        a {
+          span {
+            position: relative;
+            z-index: 2;
+          }
+          text-decoration: none;
+          color: #fff;
+          background-color: #E3872D;
+          font-weight: 600;
+          font-family: "Montserrat";
+          padding: 12px 35px;
+          border-radius: 3px;
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+          &:before {
+            position: absolute;
+            content: "";
+            top: 0px;
+            height: 100%;
+            left: -25%;
+            width: 0%;
+            background-color: #041230;
+            transform: skew(50deg);
+            transition-duration: .6s;
+            z-index: 1;
+          }
+          &:hover:before {
+            width: 180%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.arlo_tm_skills_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .inner_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    display: flex;
+  }
+  background-color: #f6f7fd;
+  padding: 90px 0px;
+  margin-bottom: 100px;
+  .leftbox {
+    width: 35%;
+    height: auto;
+    clear: both;
+    float: left;
+    padding-right: 0px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .rightbox {
+    width: 65%;
+    height: auto;
+    clear: both;
+    float: right;
+    padding-left: 65px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+}
+
+.progress_bar_wrap_total {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 10px;
+  position: relative;
+  margin-top: -4px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_progress_wrap {
+  &[data-size="big"] .arlo_tm_progress .arlo_tm_bar_bg {
+    height: 40px;
+  }
+  &[data-size="small"] .arlo_tm_progress .arlo_tm_bar_bg {
+    height: 5px;
+  }
+  &[data-round="a"] .arlo_tm_progress {
+    .arlo_tm_bar_bg, .arlo_tm_bar {
+      -webkit-border-radius: 2px;
+      -moz-border-radius: 2px;
+      border-radius: 2px;
+    }
+  }
+  &[data-round="b"] .arlo_tm_progress {
+    .arlo_tm_bar_bg, .arlo_tm_bar {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+  }
+  &[data-round="c"] .arlo_tm_progress {
+    .arlo_tm_bar_bg, .arlo_tm_bar {
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+    }
+  }
+
+  & .arlo_tm_progress {
+    .arlo_tm_bar_bg, .arlo_tm_bar {
+      transition: width 4000ms ease-in-out;
+    }
+  }
+}
+
+.arlo_tm_progress {
+  width: 100%;
+  margin-bottom: 16px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+  > span {
+    margin: 0px 0px 3px 0px;
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
+  span {
+    &.label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #000;
+      font-family: "Montserrat";
+      .experience {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+    &.number {
+      float: right;
+      font-size: 13px;
+      color: #000;
+      font-weight: 700;
+      font-family: "Montserrat";
+    }
+  }
+  .arlo_tm_bar_bg {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-width: 100%;
+    position: relative;
+    height: 20px;
+    .arlo_tm_bar_wrap {
+      width: 0px;
+      height: 100%;
+      &.open {
+        -webkit-animation: arlo_tm_expand 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* Safari 4+ */
+        -moz-animation: arlo_tm_expand 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* Fx 5+ */
+        animation: arlo_tm_expand 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        /* IE 10+ */
+        width: 100%;
+      }
+    }
+    .arlo_tm_bar {
+      height: 100%;
+      background: #333;
+      width: 0px;
+      overflow: hidden;
+    }
+  }
+}
+
+.arlo_tm_progress_wrap[data-strip="on"] .arlo_tm_progress .arlo_tm_bar {
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 75%, transparent 75%, transparent);
+  -webkit-animation: arlo_tm_bar_move 4s linear infinite;
+  -moz-animation: arlo_tm_bar_move 4s linear infinite;
+  animation: arlo_tm_bar_move 4s linear infinite;
+  background-size: 50px 50px;
+}
+
+@-webkit-keyframes arlo_tm_bar_move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+
+@-moz-keyframes arlo_tm_bar_move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+
+@keyframes arlo_tm_bar_move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+
+/*expand width animation*/
+@-webkit-keyframes arlo_tm_expand {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+@-moz-keyframes arlo_tm_expand {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+@keyframes arlo_tm_expand {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+.arlo_tm_mini_title_holder {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  h4 {
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  &.contact h4 {
+    margin-bottom: 30px;
+  }
+}
+
+/*---------------------------------------------------*/
+/*	04) ARLO SERVICES
+/*---------------------------------------------------*/
+
+.arlo_tm_services_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #fff;
+  margin-bottom: 70px;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .arlo_tm_title_holder_wrap {
+    margin-bottom: 93px;
+  }
+  .list_wrap {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    ul {
+      margin: 0px 0px 0px -30px;
+      list-style-type: none;
+      li {
+        margin: 0px 0px 30px 0px;
+        float: left;
+        width: 33.3333%;
+        padding-left: 30px;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        /* Opera/IE 8+ */
+        .inner {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+          position: relative;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          padding: 40px 40px 33px 40px;
+          top: 0px;
+          -webkit-transition: all .3s ease;
+          -moz-transition: all .3s ease;
+          -ms-transition: all .3s ease;
+          -o-transition: all .3s ease;
+          transition: all .3s ease;
+          -webkit-box-sizing: border-box;
+          /* Safari/Chrome, other WebKit */
+          -moz-box-sizing: border-box;
+          /* Firefox, other Gecko */
+          box-sizing: border-box;
+          /* Opera/IE 8+ */
+          &:hover {
+            top: -5px;
+          }
+        }
+        .icon {
+          margin-bottom: 21px;
+          .svg {
+            width: 40px;
+            height: 40px;
+            color: #E3872D;
+          }
+        }
+        .title_service {
+          margin-bottom: 17px;
+          h3 {
+            font-family: "Montserrat";
+            font-size: 22px;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*---------------------------------------------------*/
+/*	05) ARLO COUNTERBOX
+/*---------------------------------------------------*/
+
+.arlo_tm_counter_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  overflow: hidden;
+}
+
+.arlo_tm_counter_list {
+  list-style-type: none;
+  width: 100%;
+  margin: 0px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  perspective: 500px;
+  li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin: 0px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    .inner {
+      width: 100%;
+      height: auto;
+      clear: both;
+      float: left;
+      position: relative;
+      padding: 90px 15px 93px 15px;
+      -webkit-box-sizing: border-box;
+      /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;
+      /* Firefox, other Gecko */
+      box-sizing: border-box;
+      /* Opera/IE 8+ */
+      &:before {
+        position: absolute;
+        content: "";
+        width: 1px;
+        top: 35px;
+        bottom: 35px;
+        background-color: #d1d7db;
+        left: 100%;
+      }
+    }
+    &:nth-child(4) .inner:before {
+      display: none;
+    }
+    h3 {
+      font-family: "Montserrat";
+      color: #181a2f;
+      margin-bottom: 10px;
+      > span {
+        font-size: 40px;
+        font-weight: 700;
+      }
+    }
+    .inner > span {
+      color: #666;
+      font-family: "Open Sans";
+      font-size: 14px;
+      display: block;
+      font-weight: 600;
+    }
+  }
+}
+
+/*---------------------------------------------------*/
+/*	06) ARLO PORTFOLIO
+/*---------------------------------------------------*/
+
+.arlo_tm_title_holder.portfolio {
+  padding-bottom: 90px;
+}
+
+.arlo_tm_portfolio_wrapper_all {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  padding-bottom: 70px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .arlo_tm_button {
+    text-align: center;
+  }
+}
+
+.arlo_tm_portfolio_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_portfolio_filter {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  list-style-type: none;
+  margin: 0px 0px 13px 0px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  li {
+    display: inline-block;
+    margin: 0px 40px 0px 0px;
+    &:last-child {
+      margin-right: 0px;
+    }
+    a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: #000;
+      display: inline-block;
+      margin-bottom: 10px;
+      position: relative;
+      -webkit-transition: all .1s ease;
+      -moz-transition: all .1s ease;
+      -ms-transition: all .1s ease;
+      -o-transition: all .1s ease;
+      transition: all .1s ease;
+      &.current {
+        color: #BD0A0D;
+      }
+    }
+  }
+}
+
+/* PORTFOLIO LIST */
+
+.arlo_tm_portfolio_list {
+  list-style-type: none;
+  margin: 0px 0px 0px -30px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  > li {
+    width: 33.3333%;
+    float: left;
+    position: relative;
+    margin: 0px 0px 30px 0px;
+    padding-left: 30px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  li img {
+    min-width: 100%;
+  }
+}
+
+.arlo_tm_portfolio_titles {
+  white-space: nowrap;
+  background: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 5px 15px;
+  color: #000000;
+  position: fixed;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .work__cat {
+    position: absolute;
+    background: #ffffff;
+    top: 100%;
+    left: 0;
+    margin-top: -5px;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    padding: 5px 15px;
+  }
+}
+
+.entry {
+  position: relative;
+}
+
+.arlo_tm_portfolio_image_main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*---------------------------------------------------*/
+/*	07) ARLO TESTIMONIALS
+/*---------------------------------------------------*/
+
+.arlo_tm_testimonials_wrapper_all {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+.arlo_tm_testimonial_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .carousel_wrap {
+    width: 100%;
+    max-width: 730px;
+    margin: 0px auto;
+    height: auto;
+    clear: both;
+    text-align: center;
+    cursor: e-resize;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    ul {
+      margin: 0px;
+      list-style-type: none;
+      li {
+        margin: 0px;
+        .inner {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+          position: relative;
+          -webkit-box-sizing: border-box;
+          /* Safari/Chrome, other WebKit */
+          -moz-box-sizing: border-box;
+          /* Firefox, other Gecko */
+          box-sizing: border-box;
+          /* Opera/IE 8+ */
+        }
+      }
+    }
+  }
+  .quotebox_wrap {
+    clear: both;
+    margin-bottom: 22px;
+    i {
+      color: #E3872D;
+      font-size: 35px;
+    }
+  }
+  .definitions_wrap {
+    clear: both;
+    margin-bottom: 32px;
+    p {
+      color: #fff;
+      font-size: 27px;
+      font-family: "Montserrat";
+      font-weight: 600;
+      line-height: 1.4;
+    }
+  }
+  .name_holder p {
+    color: #fff;
+    font-size: 18px;
+    font-family: "Montserrat";
+  }
+}
+
+.arlo_tm_universal_box_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .bg_wrap {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+  }
+  .overlay_image {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 15;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .overlay_video {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 15;
+    overflow: hidden;
+    video {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      object-fit: cover;
+    }
+  }
+  .overlay_color {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 20;
+  }
+  .content {
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    position: relative;
+    z-index: 25;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+  .overlay_image.testimonial {
+    background-image: url(/image/hero/bg.jpg);
+  }
+  .overlay_color.testimonial {
+    background-color: rgba(7, 23, 55, 0.8);
+  }
+  .content.testimonial {
+    padding: 82px 0px 90px 0px;
+  }
+}
+
+/*---------------------------------------------------*/
+/*	08) ARLO NEWS
+/*---------------------------------------------------*/
+
+.arlo_tm_list_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  > ul.total {
+    margin: 0px 0px 0px -30px;
+    list-style-type: none;
+    > li {
+      margin: 0px 0px 30px 0px;
+      float: left;
+      width: 33.3333%;
+      padding-left: 30px;
+      -webkit-box-sizing: border-box;
+      /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;
+      /* Firefox, other Gecko */
+      box-sizing: border-box;
+      /* Opera/IE 8+ */
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      .inner_list {
+        width: 100%;
+        height: auto;
+        clear: both;
+        float: left;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;
+        /* Firefox, other Gecko */
+        box-sizing: border-box;
+        /* Opera/IE 8+ */
+      }
+    }
+  }
+}
+
+.arlo_tm_news_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  padding-top: 98px;
+  padding-bottom: 70px;
+  background-color: #f6f7fd;
+  margin-bottom: 100px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .link_news {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 22;
+  }
+  .arlo_tm_list_wrap .inner_list {
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .definitions_wrap {
+    padding: 40px 30px 47px 30px;
+  }
+  .image_wrap {
+    position: relative;
+    .big {
+      display: none;
+    }
+    .small {
+      display: block;
+    }
+  }
+  .news_image {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .date_wrap {
+    margin-bottom: 16px;
+    p {
+      color: #333;
+      font-family: "Montserrat";
+      font-weight: 600;
+    }
+  }
+  .full_def {
+    display: none;
+  }
+  .date_wrap p a {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: 23px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    &:hover {
+      color: #E3872D;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 1px;
+      background-color: #333;
+      top: 50%;
+      right: 100%;
+      margin-right: 8px;
+    }
+  }
+  .title_holder {
+    margin-bottom: 18px;
+    h3 {
+      color: #fff;
+      line-height: 1.4;
+      font-weight: 600;
+      font-family: "Montserrat";
+      a {
+        text-decoration: none;
+        color: #041230;
+        font-size: 22px;
+        display: block;
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+        &:hover {
+          color: #E3872D;
+        }
+      }
+    }
+  }
+  .definition {
+    margin-bottom: 26px;
+    p {
+      color: #333;
+    }
+  }
+  .read_more a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #E3872D;
+    font-weight: 600;
+    font-family: "Montserrat";
+    padding: 12px 35px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0px;
+      height: 100%;
+      left: -25%;
+      width: 0%;
+      background-color: #041230;
+      transform: skew(50deg);
+      transition-duration: .6s;
+      z-index: 1;
+    }
+    &:hover:before {
+      width: 170%;
+    }
+    span {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.arlo_tm_popup_share_wrap {
+  display: none;
+}
+
+#arlo_tm_popup_blog {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 50px 0px;
+  z-index: 99999999;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  &.opened {
+    opacity: 1;
+    visibility: visible;
+  }
+  .definitions_wrap {
+    width: 100%;
+    float: left;
+  }
+  .full_def {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    float: left;
+    p {
+      display: inline-block;
+    }
+  }
+  .definition {
+    display: none;
+  }
+  .inner_popup {
+    width: 100%;
+    float: left;
+    clear: both;
+    position: relative;
+  }
+  .date_wrap p {
+    color: #333;
+    font-family: "Montserrat";
+    font-weight: 600;
+    a {
+      color: #333;
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      margin-left: 23px;
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -ms-transition: all .3s ease;
+      -o-transition: all .3s ease;
+      transition: all .3s ease;
+      &:hover {
+        color: #BD0A0D;
+      }
+    }
+  }
+  .image_wrap {
+    margin-bottom: 45px;
+    position: relative;
+    width: 100%;
+    float: left;
+    .big {
+      display: block;
+      min-height: 250px;
+    }
+    .small {
+      display: none;
+    }
+    .news_image {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .date_wrap {
+    margin-bottom: 16px;
+    width: 100%;
+    float: left;
+    p a:before {
+      position: absolute;
+      content: "";
+      width: 10px;
+      height: 1px;
+      background-color: #333;
+      top: 50%;
+      right: 100%;
+      margin-right: 8px;
+    }
+  }
+  .title_holder {
+    margin-bottom: 18px;
+    width: 100%;
+    float: left;
+    h3 {
+      line-height: 1.4;
+      font-weight: 600;
+      font-family: "Montserrat";
+      a {
+        text-decoration: none;
+        color: #000;
+        font-size: 22px;
+        display: block;
+      }
+    }
+  }
+  .definition p {
+    color: #333;
+  }
+  .read_more {
+    display: none;
+  }
+  .arlo_tm_popup_share_wrap {
+    display: block;
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    padding-bottom: 5px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    ul {
+      margin: 0px;
+      list-style-type: none;
+      li {
+        display: inline-block;
+        margin: 0px 15px 0px 0px;
+        a {
+          text-decoration: none;
+          color: #000;
+          font-size: 15px;
+          position: relative;
+          font-family: "Montserrat";
+          font-weight: 600;
+          -webkit-transition: all .3s ease;
+          -moz-transition: all .3s ease;
+          -ms-transition: all .3s ease;
+          -o-transition: all .3s ease;
+          transition: all .3s ease;
+          &:hover {
+            color: #BD0A0D;
+          }
+        }
+      }
+    }
+  }
+  .close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: block;
+    z-index: 111111111;
+    a {
+      position: relative;
+      display: block;
+      height: 30px;
+      margin-right: 10px;
+      margin-top: 12px;
+      &:before {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 1);
+        top: 5px;
+        right: 13px;
+        transform: rotate(45deg);
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 20px;
+        background-color: rgba(0, 0, 0, 1);
+        top: 5px;
+        right: 13px;
+        transform: rotate(135deg);
+      }
+    }
+  }
+}
+
+/*---------------------------------------------------*/
+/*	09) ARLO CONTACT
+/*---------------------------------------------------*/
+
+.arlo_tm_contact_wrap_all {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .leftbox {
+    width: 40%;
+    height: auto;
+    float: left;
+    padding-right: 40px;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    .short_info_wrap {
+      width: 100%;
+      height: auto;
+      clear: both;
+      float: left;
+      -webkit-box-sizing: border-box;
+      /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;
+      /* Firefox, other Gecko */
+      box-sizing: border-box;
+      /* Opera/IE 8+ */
+      ul {
+        margin: 0px;
+        list-style-type: none;
+        li {
+          margin: 0px 0px 15px 0px;
+          label {
+            font-family: "Montserrat";
+            font-weight: 700;
+            font-size: 13px;
+            color: #000;
+          }
+          span {
+            padding-left: 5px;
+          }
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  .rightbox {
+    width: 60%;
+    height: auto;
+    float: right;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+  }
+}
+
+.arlo_tm_contact_wrap {
+  max-width: 830px;
+  height: auto;
+  margin: 0px auto;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  .subtitle {
+    text-align: center;
+    margin-bottom: 69px;
+    p {
+      color: #333;
+    }
+  }
+  .main_input_wrap {
+    margin-bottom: 75px;
+    position: relative;
+    top: -24px;
+    width: 100%;
+    height: auto;
+    clear: both;
+    float: left;
+    -webkit-box-sizing: border-box;
+    /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+    /* Opera/IE 8+ */
+    .wrap {
+      width: 100%;
+      height: auto;
+      clear: both;
+      float: left;
+      -webkit-box-sizing: border-box;
+      /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box;
+      /* Firefox, other Gecko */
+      box-sizing: border-box;
+      /* Opera/IE 8+ */
+      margin-bottom: 20px;
+      input {
+        width: 100%;
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(10, 4, 37, 1);
+        color: #333;
+        padding-left: 0px !important;
+        &:focus {
+          outline: none;
+        }
+      }
+      textarea {
+        width: 100%;
+        height: 80px;
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(10, 4, 37, 1);
+        color: #333;
+        padding-left: 0px !important;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .arlo_tm_button a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #E3872D;
+    font-weight: 600;
+    font-family: "Montserrat";
+    padding: 12px 35px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0px;
+      height: 100%;
+      left: -25%;
+      width: 0%;
+      background-color: #041230;
+      transform: skew(50deg);
+      transition-duration: .6s;
+      z-index: 1;
+    }
+    &:hover:before {
+      width: 170%;
+    }
+    span {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  .empty_notice {
+    color: #BD0A0D;
+    margin-bottom: 7px;
+    display: none;
+    text-align: left;
+  }
+  .contact_error {
+    color: rgba(255, 0, 4, 1);
+    text-align: left;
+  }
+  .returnmessage {
+    color: #0064FF;
+    margin-bottom: 7px;
+    text-align: left;
+  }
+}
+
+.arlo_tm_footer_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  text-align: left;
+  background-color: #041230;
+  padding: 50px 0px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  p {
+    color: #fff;
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-family: "Montserrat";
+      font-weight: 600;
+      position: relative;
+    }
+  }
+}
+
+/*---------------------------------------------------*/
+/*	10) EDREA TO TOP
+/*---------------------------------------------------*/
+
+.arlo_tm_totop {
+  position: fixed;
+  bottom: 40px;
+  right: 55px;
+  z-index: 100;
+  overflow: hidden;
+  outline: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #E3872D;
+  padding: 22px;
+  border-radius: 3px;
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    height: 100%;
+    left: -75%;
+    width: 0%;
+    background-color: #041230;
+    transform: skew(50deg);
+    transition-duration: .6s;
+    z-index: 1;
+  }
+  &:after {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    content: '';
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+    top: 14px;
+    left: 17px;
+    z-index: 2;
+  }
+  &:hover:before {
+    width: 290%;
+  }
+  &.opened {
+    opacity: 1;
+    visibility: visible;
+    bottom: 55px;
+  }
+}
+
+/*---------------------------------------------------*/
+/*	11) ARLO PARTICLE HOMEPAGE
+/*---------------------------------------------------*/
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.arlo_tm_universal_box_wrap.particle {
+  height: 100vh;
+  position: relative;
+  background-image: url(/public/image/hero/2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .particle_overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(7, 23, 55, 0.8);
+  }
+}
+
+/*---------------------------------------------------*/
+/*	12) ARLO RIPPLE HOMEPAGE
+/*---------------------------------------------------*/
+
+.arlo_tm_ripple_wrap {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(/public/image/hero/2.jpg);
+  position: relative;
+  .overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(7, 23, 55, 0.8);
+    z-index: 1;
+  }
+  .container {
+    height: 100%;
+    z-index: 2;
+  }
+}
+
+/*---------------------------------------------------*/
+/*	13) ARLO MEDIA QUERIES (FOR SMALL DEVIVES)
+/*---------------------------------------------------*/
+
+@media (max-width: 1400px) {
+  .arlo_tm_about_wrap .leftbox {
+    padding-right: 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .arlo_tm_services_wrap .list_wrap ul li {
+    width: 50%;
+  }
+  #arlo_tm_popup_blog .close {
+    right: 0px;
+  }
+  .arlo_tm_list_wrap > ul.total > li {
+    width: 50%;
+  }
+  .arlo_tm_about_wrap {
+    .leftbox {
+      display: none;
+    }
+    .rightbox {
+      padding-left: 0px;
+      width: 100%;
+    }
+  }
+  .arlo_tm_contact_wrap_all {
+    .leftbox {
+      width: 100%;
+      padding-right: 0px;
+      margin-bottom: 19px;
+    }
+    .rightbox {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+@media (max-width: 1040px) {
+  .arlo_tm_about_wrap {
+    flex-direction: column;
+    .rightpart .info_list ul li {
+      width: 100%;
+    }
+    .leftpart {
+      width: 100%;
+      padding-right: 0px;
+      margin-bottom: 60px;
+    }
+    .rightpart {
+      width: 100%;
+    }
+  }
+  .arlo_tm_skills_wrap {
+    .inner_wrap {
+      flex-direction: column;
+    }
+    .leftbox {
+      padding-right: 0px;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+    .rightbox {
+      width: 100%;
+      padding-left: 0px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .arlo_tm_hero_header_wrap {
+    .name_holder h3 {
+      font-size: 40px;
+    }
+    .text_typing p {
+      font-size: 21px;
+    }
+  }
+  .arlo_tm_title_holder {
+    h3 {
+      font-size: 45px;
+    }
+    &:before {
+      top: -2px;
+    }
+  }
+  .arlo_tm_services_wrap .list_wrap ul {
+    margin: 0px;
+    li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  }
+  .arlo_tm_counter_list li {
+    width: 50%;
+    .inner {
+      padding: 45px 15px 48px 15px;
+    }
+  }
+  .arlo_tm_portfolio_list > li {
+    width: 50%;
+  }
+  .arlo_tm_list_wrap > ul.total {
+    margin: 0px;
+    > li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  }
+  .arlo_tm_about_wrap .about_short_contact_wrap ul li {
+    width: 100%;
+  }
+  .arlo_tm_totop {
+    right: 20px;
+    bottom: 10px;
+    &.opened {
+      bottom: 20px;
+    }
+  }
+  .arlo_tm_preloader {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .arlo_tm_hero_header_wrap {
+    .name_holder h3 {
+      font-size: 30px;
+    }
+    .text_typing p {
+      font-size: 18px;
+    }
+  }
+  .arlo_tm_title_holder {
+    &:before {
+      display: none;
+    }
+    h3, span {
+      padding-left: 0px;
+    }
+  }
+  .arlo_tm_counter_list li {
+    width: 100%;
+    .inner {
+      padding: 0px 0px 35px 0px;
+    }
+  }
+  .arlo_tm_portfolio_list {
+    margin: 0px;
+    > li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  }
+  .arlo_tm_counter_wrap {
+    padding: 94px 0px 48px 0px;
+  }
+}
+.ReactModalPortal {
+  .ReactModal__Overlay.ReactModal__Overlay--after-open {
+    z-index: 1000;
+    background-color: rebeccapurple;
+
+    button.close {
+      z-index: 1002;
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      //margin-top: 5px;
+      //margin-right: 10px;
+    }
+
+    .carousel.slide {
+      z-index: 1001;
+      //opacity: 1!important;
+      position: relative;
+      height: 100%;
+      top: 0;
+      left: 0;
+      -webkit-transform: none;
+      transform: none;
+      margin-top: 0;
+      .carousel-item {
+        .img-wrapper {
+          width: 60vw;
+          height: calc(90vh);
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          background: black;
+
+          img {
+            min-height: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .portfolio-modal-content {
+      padding: 20px 10px 20px 10px;
+    }
+  }
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.bg-loader {
+  background: #eeeeee;
+}
