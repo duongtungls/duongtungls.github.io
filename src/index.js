@@ -7,20 +7,14 @@ import {Provider} from "react-redux";
 import store from "./store/store";
 import firebase from "firebase/app";
 import ReactGA from 'react-ga';
+import {getFirebaseConfig} from "./common/utils";
 
 require('dotenv').config()
 
+let config = getFirebaseConfig();
 const env = process.env;
 
-var config = {
-  apiKey: env.REACT_APP_DEV_API_KEY,
-  authDomain: env.REACT_APP_DEV_AUTH_DOMAIN,
-  databaseURL: env.REACT_APP_DEV_DATABASE_URL,
-  storageBucket: env.REACT_APP_DEV_STORAGE_BUCKET,
-};
-
 firebase.initializeApp(config);
-
 
 const index = <Provider store={store}>
   <Index/>
