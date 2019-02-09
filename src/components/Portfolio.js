@@ -1,18 +1,34 @@
 import React, {Component} from 'react'
 import PortfolioModal from "./PortfolioModal";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {getGeneralInfo} from "../store/actions/generalInfoActions";
+import {convertSnakeCase} from "../common/utils";
+import $ from "jquery";
+import Image from "./Image";
 
 class Portfolio extends Component {
 
-  openModal = (event) => {
+  openModal = (event, project) => {
     event.preventDefault();
     if (this.modal) {
-      this.modal.openModal()
+      this.modal.openModal(project)
     }
     return false;
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
 
+    const {
+      title,
+      description,
+      category,
+      projects,
+    } = this.props;
 
     return (
       <div className="arlo_tm_section relative" id="portfolio">
@@ -23,71 +39,37 @@ class Portfolio extends Component {
             <div className="container">
               <div className="arlo_tm_portfolio_wrap">
                 <div className="arlo_tm_title_holder portfolio">
-                  <h3>Creative Works</h3>
-                  <span>Check out our latest creative works</span>
+                  <h3>{title}</h3>
+                  <span>{description}</span>
                 </div>
                 <div className="arlo_tm_portfolio_titles"></div>
                 <ul className="arlo_tm_portfolio_filter">
                   <li><a href="#" className="current" data-filter="*">All</a></li>
-                  <li><a href="#" data-filter=".design">Design</a></li>
-                  <li><a href="#" data-filter=".photography">Photography</a></li>
-                  <li><a href="#" data-filter=".development">Development</a></li>
+                  { category && category.map((item, index) => {
+                    return(
+                      <li key={index}>
+                        <a href="#" data-filter={`.${convertSnakeCase(item)}`}>{item}</a>
+                      </li>
+                    )
+                  })}
                 </ul>
                 <ul className="arlo_tm_portfolio_list">
-                  <li className="design">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="Aoc Productions"
-                         data-category="Design">
-                      <a className="zoom" href="/image/portfolio/1.jpg" onClick={this.openModal}>
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/1.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
-                  <li className="photography">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="Ind Hed"
-                         data-category="Photography">
-                      <a className="zoom" href="/image/portfolio/2.jpg">
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/2.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
-                  <li className="development">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="Paper Mockup"
-                         data-category="Development">
-                      <a className="zoom" href="/image/portfolio/3.jpg#">
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/3.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
-                  <li className="photography">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="The Nordic"
-                         data-category="Photography">
-                      <a className="zoom" href="/image/portfolio/4.jpg#">
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/4.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
-                  <li className="design">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="Creatives Castle"
-                         data-category="Design">
-                      <a className="zoom" href="/image/portfolio/5.jpg#">
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/5.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
-                  <li className="photography">
-                    <div className="entry arlo_tm_portfolio_animation_wrap" data-title="White Bag"
-                         data-category="Photography">
-                      <a className="zoom" href="/image/portfolio/6.jpg#">
-                        <img src="/image/portfolio/600x600.jpg" alt=""/>
-                        <div className="arlo_tm_portfolio_image_main" data-img-url="/image/portfolio/6.jpg"></div>
-                      </a>
-                    </div>
-                  </li>
+                  {projects && projects.map((item, index) => {
+                    return(
+                      <li key={index} className={convertSnakeCase(item.category[0])}>
+                        <div className="entry arlo_tm_portfolio_animation_wrap" data-title={item.name}
+                             data-category={convertSnakeCase(item.category[0])}>
+                          <a className="zoom" href="#" onClick={e => this.openModal(e, item)}>
+                            <div className="img-wrapper">
+                              <Image src={item.images[0]} alt=""/>
+                            </div>
+                            <div className="arlo_tm_portfolio_image_main" data-img-url={item.images[0]}></div>
+                          </a>
+                        </div>
+                      </li>
+                    )
+                  })}
+
                 </ul>
               </div>
             </div>
@@ -100,4 +82,22 @@ class Portfolio extends Component {
   }
 }
 
-export default Portfolio;
+const mapStateToProps = (state) => ({
+  title: state.portfolio.title,
+  description: state.portfolio.description,
+  category: state.portfolio.category,
+  projects: state.portfolio.projects,
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getGeneralInfo
+    },
+    dispatch
+  )
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Portfolio)

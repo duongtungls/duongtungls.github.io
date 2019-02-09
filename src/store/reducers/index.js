@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import user from './user';
 import general from "./general";
 import abilities from "./abilities";
+import portfolio from "./portfolio";
 
 export default combineReducers({
   user,
   general,
   abilities,
+  portfolio,
 })

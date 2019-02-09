@@ -10,6 +10,7 @@ import {
 import Img from 'react-image'
 import PropTypes from "prop-types";
 import ProgressBar from "./ProgressBar";
+import Image from "./Image";
 
 const customStyles = {
   overlay: {
@@ -54,21 +55,31 @@ class PortfolioModal extends Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      modalIsOpen: false
+      modalIsOpen: false,
+      project: null,
     };
   }
 
 
-  openModal = () => {
-    this.setState({modalIsOpen: true});
+  openModal = (project) => {
+    this.setState({
+      modalIsOpen: true,
+      project
+    });
+
   }
 
   afterOpenModal = () => {
-
+    if (window.hideTawkWidget) {
+      window.hideTawkWidget();
+    }
   }
 
   closeModal = () => {
     this.setState({modalIsOpen: false});
+    if (window.showTawkWidget) {
+      window.showTawkWidget()
+    }
   }
 
   onExiting = () => {
@@ -80,15 +91,22 @@ class PortfolioModal extends Component {
   }
 
   next= () => {
-    console.log('next')
+    const { project } = this.state;
+    if (!project || (project && !project.images)) {
+      return
+    }
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex = this.state.activeIndex === project.images.length - 1 ? 0 : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous = () => {
+    const { project } = this.state;
+    if (!project || (project && !project.images)) {
+      return
+    }
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    const nextIndex = this.state.activeIndex === 0 ? project.images.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
@@ -99,29 +117,27 @@ class PortfolioModal extends Component {
 
 
   render() {
-    const { activeIndex } = this.state;
+    const { activeIndex, project } = this.state;
 
-    const slides = items.map((item) => {
+    if (!project) {
+      return(
+        <div/>
+      )
+    }
+
+    const slides = project.images.map((item, index) => {
       return (
         <CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.src}
+          key={index}
         >
           <div className="img-wrapper">
             {/*<img src={item.src} alt={item.altText} />*/}
-            <Img
-              src={item.src} alt={item.altText}
-              loader={
-                <div className="w-100 h-100 d-flex justify-content-center align-items-center bg-loader">
-                  <div className="spinner-grow text-primary" role="status">
-                    <span className="sr-only">Loading...</span>
-                  </div>
-                </div>
-              }
-            />
+            <Image src={item} alt={project.name}/>
+
           </div>
-          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+          <CarouselCaption captionText={`Title ${index}`} captionHeader={`caption ${index}`} />
         </CarouselItem>
       );
     });
@@ -134,12 +150,12 @@ class PortfolioModal extends Component {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div className="h-100">
+        <div className="h-100 portfolio-modal-container">
           <button type="button" className="close" aria-label="Close" onClick={this.closeModal}>
             <span aria-hidden="true">&times;</span>
           </button>
-          <div className="d-inline-flex row w-100 h-100">
-            <div className="col-8 h-100">
+          <div className="d-lg-inline-flex d-md-flex flex-column w-100 row-custom h-100-custom">
+            <div className="col-lg-8 col-sm-12 h-100-custom carousel-container">
               <Carousel
                 className="current"
                 activeIndex={activeIndex}
@@ -148,21 +164,24 @@ class PortfolioModal extends Component {
                 interval={60000}
                 previous={this.previous}
               >
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                <CarouselIndicators items={project.images} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
                 {slides}
                 <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                 <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
               </Carousel>
             </div>
 
-            <div className="col-4 h-100 portfolio-modal-content">
-              <div className="h-100 overflow-auto">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  Lorem ipsum dolor sit amet, postea docendi vix ei, no tollit perpetua vim. Sed ei inani ancillae, eu facilisis suavitate dissentias duo. Mea nemore laoreet consequuntur ei, pri nobis eruditi cu. An tamquam copiosae philosophia has, ei tation integre mea.
-
-                  Option alienum necessitatibus ex usu, quo suas tollit appetere eu, sit utinam doctus mentitum id. In sed soluta oblique scriptorem, cu vocibus comprehensam usu, verear aliquam id eum. Sed aliquip oporteat disputationi no, mei dicta inimicus definiebas cu. Habeo omittam suavitate an sed. Ius te zril nemore.
-                </p>
+            <div className="col-lg-4 col-sm-12 h-100-custom portfolio-modal-content">
+              <div className="h-100-custom overflow-auto">
+                <h5 className="card-title">{project.name}</h5>
+                <p className="card-text" dangerouslySetInnerHTML={{__html: project.description }} />
+                <div className="text-primary d-inline-flex flex-wrap">
+                  {project.tag && project.tag.map((item, index) => {
+                    return(
+                      <a key={index} className="mr-2">{`#${item}`}</a>
+                    )
+                  })}
+                </div>
               </div>
             </div>
 

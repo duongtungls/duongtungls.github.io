@@ -16,7 +16,8 @@ class Services extends Component {
                 <li>
                   <div className="inner">
                     <div className="icon">
-                      <img className="svg" src="/image/svg/camera-diaphragm.svg" alt=""/>
+                      {/*<img className="svg" src="/image/svg/camera-diaphragm.svg" alt=""/>*/}
+                      <i className="fa fa-3x fa-code"/>
                     </div>
                     <div className="title_service">
                       <h3>Photography</h3>

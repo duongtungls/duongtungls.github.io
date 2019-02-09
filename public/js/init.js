@@ -107,7 +107,7 @@ function arlo_tm_responsive(){
 	var rightpart			= jQuery('.arlo_tm_rightpart');
 	var WW					= jQuery(window).width();
 	
-	if(WW<1040){
+	if(WW<992){
 		leftpart.addClass('hide');
 		rightpart.addClass('full');
 	}else{
@@ -213,6 +213,37 @@ function arlo_tm_portfolio(){
 
 	"use strict";
 
+	setTimeout(function () {
+    if(jQuery().isotope) {
+
+      // Needed variables
+      var list 		 = jQuery('.arlo_tm_portfolio_list');
+      var filter		 = jQuery('.arlo_tm_portfolio_filter');
+
+      if(filter.length){
+        // Isotope Filter
+        filter.find('a').on('click', function(){
+          var selector = jQuery(this).attr('data-filter');
+          list.isotope({
+            filter				: selector,
+            animationOptions	: {
+              duration			: 750,
+              easing				: 'linear',
+              queue				: false
+            }
+          });
+          return false;
+        });
+
+        // Change active element class
+        filter.find('a').on('click', function() {
+          filter.find('a').removeClass('current');
+          jQuery(this).addClass('current');
+          return false;
+        });
+      }
+    }
+  }, 3000)
 	if(jQuery().isotope) {
 
 		// Needed variables

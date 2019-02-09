@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../styles/styles.scss';
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import Loader from "../components/Loader";
 import LeftSideBar from "../components/LeftSideBar";
 import MainContent from "../components/MainContent";
@@ -8,6 +7,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {getGeneralInfo} from "../store/actions/generalInfoActions";
 import {getAbilities} from "../store/actions/abilityActions";
+import {getPortfolio} from "../store/actions/portfolioActions";
 
 class Index extends Component {
 
@@ -20,6 +20,7 @@ class Index extends Component {
   componentDidMount() {
     this.props.getGeneralInfo();
     this.props.getAbilities();
+    this.props.getPortfolio();
 
     setTimeout(() => {
       this.setState({
@@ -57,7 +58,8 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getGeneralInfo,
-      getAbilities
+      getAbilities,
+      getPortfolio
     },
     dispatch
   )
