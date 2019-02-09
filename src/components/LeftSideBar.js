@@ -38,7 +38,7 @@ class LeftSideBar extends Component {
 
     return (
       <React.Fragment>
-        <div className="arlo_tm_leftpart_wrap">
+        <div className="dct_tm_leftpart_wrap">
           <div className="leftpart_inner">
             <div className="logo_wrap">
               <a href="#"><img src="/image/logo/desktop-logo.png" alt=""/></a>
@@ -76,7 +76,7 @@ class LeftSideBar extends Component {
                 </ul>
               </div>
             </div>
-            <a className="arlo_tm_resize" href="#"><i className="xcon-angle-left"></i></a>
+            <a className="dct_tm_resize" href="#"><i className="xcon-angle-left"></i></a>
           </div>
         </div>
         <Navbar dark expand="md" className="d-md-flex d-lg-none d-xl-none fixed-top bg-navbar">

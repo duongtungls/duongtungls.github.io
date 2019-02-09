@@ -15,14 +15,14 @@ class About extends Component {
 
     return (
       <React.Fragment>
-        <div className="arlo_tm_section relative" id="about">
-          <div className="arlo_tm_about_wrapper_all">
+        <div className="dct_tm_section relative" id="about">
+          <div className="dct_tm_about_wrapper_all">
             <div className="container">
-              <div className="arlo_tm_title_holder">
+              <div className="dct_tm_title_holder">
                 <h3>About Me</h3>
                 <span>Main informations about me</span>
               </div>
-              <div className="arlo_tm_about_wrap">
+              <div className="dct_tm_about_wrap">
                 <div className="author_wrap">
                   <div className="leftbox">
                     <div className="about_image_wrap parallax" data-relative-input="true">
@@ -38,13 +38,13 @@ class About extends Component {
 
                   </div>
                   <div className="rightbox">
-                    <div className="arlo_tm_mini_title_holder">
+                    <div className="dct_tm_mini_title_holder">
                       <h4>I'm {firstName} {lastName} and <Typed
                         strings={this.props.jobTitles || []}
                         typeSpeed={40}
                         backSpeed={50}
                         loop >
-                        <span className="arlo_tm_animation_text_word" />
+                        <span className="dct_tm_animation_text_word" />
                       </Typed></h4>
                     </div>
                     <div className="definition">
@@ -104,19 +104,19 @@ class About extends Component {
 
 
 
-        <div className="arlo_tm_section">
-          <div className="arlo_tm_skills_wrap">
+        <div className="dct_tm_section">
+          <div className="dct_tm_skills_wrap">
             <div className="container">
               <div className="inner_wrap">
                 <div className="leftbox">
-                  {abilities && abilities.title && <div className="arlo_tm_mini_title_holder">
+                  {abilities && abilities.title && <div className="dct_tm_mini_title_holder">
                     <h4>{abilities.title || ''}</h4>
                   </div>}
                   {abilities && abilities.description && <p>{abilities.description}</p>}
                 </div>
                 <div className="rightbox">
                   <div className="progress_bar_wrap_total">
-                    <div className="arlo_tm_progress_wrap" data-size="small" data-round="c" data-strip="off">
+                    <div className="dct_tm_progress_wrap" data-size="small" data-round="c" data-strip="off">
                       {abilities && abilities.abilities && <TrackVisibility once>
                         {({ isVisible }) => isVisible && <React.Fragment>
                           {

@@ -4,15 +4,15 @@ class Testimonials extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_section" id="testimonials">
-        <div className="arlo_tm_testimonials_wrapper_all">
-          <div className="arlo_tm_universal_box_wrap">
+      <div className="dct_tm_section" id="testimonials">
+        <div className="dct_tm_testimonials_wrapper_all">
+          <div className="dct_tm_universal_box_wrap">
             <div className="bg_wrap">
               <div className="overlay_image testimonial jarallax" data-speed="0"></div>
               <div className="overlay_color testimonial"></div>
             </div>
             <div className="content testimonial">
-              <div className="arlo_tm_testimonial_wrap">
+              <div className="dct_tm_testimonial_wrap">
                 <div className="container">
                   <div className="carousel_wrap">
                     <ul className="owl-carousel">

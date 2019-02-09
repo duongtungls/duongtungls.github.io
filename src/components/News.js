@@ -4,14 +4,14 @@ class News extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_section" id="news">
-        <div className="arlo_tm_news_wrap">
+      <div className="dct_tm_section" id="news">
+        <div className="dct_tm_news_wrap">
           <div className="container">
-            <div className="arlo_tm_title_holder news">
+            <div className="dct_tm_title_holder news">
               <h3>Latest News</h3>
               <span>Check out our latest News</span>
             </div>
-            <div className="arlo_tm_list_wrap blog_list">
+            <div className="dct_tm_list_wrap blog_list">
               <ul className="total">
                 <li className="wow fadeInUp" data-wow-duration="1.2s">
                   <div className="inner_list">
@@ -63,7 +63,7 @@ class News extends Component {
                           the bold colors like Ultra Violet, which is the Pantone color of the year, by the way.
                           Or play with the typography and color gradients.</p>
                       </div>
-                      <div className="arlo_tm_popup_share_wrap">
+                      <div className="dct_tm_popup_share_wrap">
                         <ul>
                           <li><a href="#">Facebook</a></li>
                           <li><a href="#">Twitter</a></li>
@@ -110,7 +110,7 @@ class News extends Component {
                           will probably have to rebrand at the andWhether youa are a freelancer or an in-house
                           designer, or at a studio or agency.</p>
                       </div>
-                      <div className="arlo_tm_popup_share_wrap">
+                      <div className="dct_tm_popup_share_wrap">
                         <ul>
                           <li><a href="#">Facebook</a></li>
                           <li><a href="#">Twitter</a></li>
@@ -172,7 +172,7 @@ class News extends Component {
                           tell through their design and graphics, can create an emotional connection with the
                           customer that may last even longer than the product itself.</p>
                       </div>
-                      <div className="arlo_tm_popup_share_wrap">
+                      <div className="dct_tm_popup_share_wrap">
                         <ul>
                           <li><a href="#">Facebook</a></li>
                           <li><a href="#">Twitter</a></li>

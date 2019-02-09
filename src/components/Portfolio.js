@@ -31,19 +31,19 @@ class Portfolio extends Component {
     } = this.props;
 
     return (
-      <div className="arlo_tm_section relative" id="portfolio">
+      <div className="dct_tm_section relative" id="portfolio">
         <PortfolioModal ref={ref => this.modal = ref}/>
 
-        <div className="arlo_tm_portfolio_wrapper_all">
-          <div className="arlo_tm_second_portfolio">
+        <div className="dct_tm_portfolio_wrapper_all">
+          <div className="dct_tm_second_portfolio">
             <div className="container">
-              <div className="arlo_tm_portfolio_wrap">
-                <div className="arlo_tm_title_holder portfolio">
+              <div className="dct_tm_portfolio_wrap">
+                <div className="dct_tm_title_holder portfolio">
                   <h3>{title}</h3>
                   <span>{description}</span>
                 </div>
-                <div className="arlo_tm_portfolio_titles"></div>
-                <ul className="arlo_tm_portfolio_filter">
+                <div className="dct_tm_portfolio_titles"></div>
+                <ul className="dct_tm_portfolio_filter">
                   <li><a href="#" className="current" data-filter="*">All</a></li>
                   { category && category.map((item, index) => {
                     return(
@@ -53,17 +53,17 @@ class Portfolio extends Component {
                     )
                   })}
                 </ul>
-                <ul className="arlo_tm_portfolio_list">
+                <ul className="dct_tm_portfolio_list">
                   {projects && projects.map((item, index) => {
                     return(
                       <li key={index} className={convertSnakeCase(item.category[0])}>
-                        <div className="entry arlo_tm_portfolio_animation_wrap" data-title={item.name}
+                        <div className="entry dct_tm_portfolio_animation_wrap" data-title={item.name}
                              data-category={convertSnakeCase(item.category[0])}>
                           <a className="zoom" href="#" onClick={e => this.openModal(e, item)}>
                             <div className="img-wrapper">
                               <Image src={item.images[0]} alt=""/>
                             </div>
-                            <div className="arlo_tm_portfolio_image_main" data-img-url={item.images[0]}></div>
+                            <div className="dct_tm_portfolio_image_main" data-img-url={item.images[0]}></div>
                           </a>
                         </div>
                       </li>

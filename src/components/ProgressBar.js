@@ -19,16 +19,16 @@ class ProgressBar extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_progress" data-color="#000">
+      <div className="dct_tm_progress" data-color="#000">
         <span>
           <span className="label">{this.props.children}</span>
           <span className="number">
             {this.props.progress}%
           </span>
         </span>
-        <div className="arlo_tm_bar_bg">
-          <div className="arlo_tm_bar_wrap open">
-            <div className="arlo_tm_bar" style={{width: `${this.state.progress}%`, backgroundColor: 'rgb(0, 0, 0)'}} />
+        <div className="dct_tm_bar_bg">
+          <div className="dct_tm_bar_wrap open">
+            <div className="dct_tm_bar" style={{width: `${this.state.progress}%`, backgroundColor: 'rgb(0, 0, 0)'}} />
           </div>
         </div>
       </div>

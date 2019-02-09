@@ -30,9 +30,9 @@ class Index extends Component {
   }
   render() {
     return (
-      <div className="arlo_tm_wrapper_all">
+      <div className="dct_tm_wrapper_all">
 
-        <div id="arlo_tm_popup_blog">
+        <div id="dct_tm_popup_blog">
           <div className="container">
             <div className="inner_popup scrollable"></div>
           </div>
@@ -40,10 +40,10 @@ class Index extends Component {
         </div>
         <Loader/>
         
-        <div className="arlo_tm_content">
+        <div className="dct_tm_content">
           <LeftSideBar/>
           <MainContent/>
-          <a className="arlo_tm_totop" href="#"></a>
+          <a className="dct_tm_totop" href="#"></a>
         </div>
       </div>
     );

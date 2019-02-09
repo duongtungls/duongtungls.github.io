@@ -13,7 +13,7 @@ class MainContent extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_rightpart">
+      <div className="dct_tm_rightpart">
         <div className="rightpart_inner">
           <Home/>
           <About/>

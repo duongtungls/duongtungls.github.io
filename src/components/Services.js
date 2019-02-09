@@ -4,10 +4,10 @@ class Services extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_section" id="services">
-        <div className="arlo_tm_services_wrap">
+      <div className="dct_tm_section" id="services">
+        <div className="dct_tm_services_wrap">
           <div className="container">
-            <div className="arlo_tm_title_holder">
+            <div className="dct_tm_title_holder">
               <h3>Amazing Services</h3>
               <span>Meet our amazing services</span>
             </div>

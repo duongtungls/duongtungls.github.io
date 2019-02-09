@@ -2,22 +2,22 @@ import React, {Component} from 'react'
 import CountUp from "react-countup";
 import TrackVisibility from 'react-on-screen';
 
-const fn = value => <span className="arlo_tm_counter">{value}</span>
+const fn = value => <span className="dct_tm_counter">{value}</span>
 class InfoCounting extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_section">
+      <div className="dct_tm_section">
         <div className="container">
-          <div className="arlo_tm_counter_wrap" data-col="4" data-delay="300">
-            <ul className="arlo_tm_counter_list arlo_tm_miniboxes">
+          <div className="dct_tm_counter_wrap" data-col="4" data-delay="300">
+            <ul className="dct_tm_counter_list dct_tm_miniboxes">
               <li>
-                <div className="inner arlo_tm_minibox">
+                <div className="inner dct_tm_minibox">
                   <h3>
                     <TrackVisibility>
                       {({ isVisible }) => isVisible && <span>
                       <CountUp delay={0.5} start={0} end={2222} duration={3} />
-                        {/*                    <span className="arlo_tm_counter" data-from="0" data-to="2222"
+                        {/*                    <span className="dct_tm_counter" data-from="0" data-to="2222"
                           data-speed="3000">
                       0
                     </span>*/}
@@ -28,7 +28,7 @@ class InfoCounting extends Component {
                 </div>
               </li>
               <li>
-                <div className="inner arlo_tm_minibox">
+                <div className="inner dct_tm_minibox">
                   <h3>
                     <TrackVisibility>
                       {({ isVisible }) => isVisible && <span>
@@ -41,7 +41,7 @@ class InfoCounting extends Component {
                 </div>
               </li>
               <li>
-                <div className="inner arlo_tm_minibox">
+                <div className="inner dct_tm_minibox">
                   <h3>
 
                     <TrackVisibility>
@@ -54,7 +54,7 @@ class InfoCounting extends Component {
                 </div>
               </li>
               <li>
-                <div className="inner arlo_tm_minibox">
+                <div className="inner dct_tm_minibox">
                   <h3>
                     <TrackVisibility>
                       {({ isVisible }) => isVisible && <span>

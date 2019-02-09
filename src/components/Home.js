@@ -10,10 +10,10 @@ const strings = ["Freelancer", "Mobile developer", "Web Developer", "React Nativ
 class Home extends Component {
 
   componentDidMount() {
-    this.arlo_tm_animate_text()
+    this.dct_tm_animate_text()
   }
 
-  arlo_tm_animate_text(){
+  dct_tm_animate_text(){
 
 /*    var animateSpan			=
 
@@ -28,9 +28,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="arlo_tm_section" id="home">
-        <div className="arlo_tm_hero_header_wrap">
-          <div className="arlo_tm_universal_box_wrap">
+      <div className="dct_tm_section" id="home">
+        <div className="dct_tm_hero_header_wrap">
+          <div className="dct_tm_universal_box_wrap">
             <div className="bg_wrap">
               <div className="overlay_image hero jarallax" data-jarallax data-speed="0.1"></div>
               <div className="overlay_color hero"></div>
@@ -49,12 +49,12 @@ class Home extends Component {
                     typeSpeed={40}
                     backSpeed={50}
                     loop >
-                    <span className="arlo_tm_animation_text_word" />
+                    <span className="dct_tm_animation_text_word" />
                   </Typed></p>
                 </div>
               </div>
             </div>
-            <div className="arlo_tm_arrow_wrap bounce anchor">
+            <div className="dct_tm_arrow_wrap bounce anchor">
               <AnchorLink href="#about"><i className="xcon-angle-double-down"></i></AnchorLink>
             </div>
           </div>

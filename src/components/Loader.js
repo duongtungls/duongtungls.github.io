@@ -17,7 +17,7 @@ class Loader extends Component {
 
   render() {
     return (
-      <div className={`arlo_tm_preloader ${this.state.loaded ? 'loaded' : ''}`}>
+      <div className={`dct_tm_preloader ${this.state.loaded ? 'loaded' : ''}`}>
         <div className="spinner_wrap">
           <div className="spinner"></div>
         </div>
