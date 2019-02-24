@@ -8,12 +8,19 @@ export const getPortfolio = () => dispatch => {
   ref.once('value').then((snapshot) => {
     const value = snapshot.val();
 
-    // if (value && value.projects) {
-    //   dispatch(getPortfolioProjectImageUrl(value.projects))
-    // }
-    //
-    // delete value.projects;
+    var returnArr = [];
 
+    const projects = snapshot.child('projects');
+
+    projects.forEach(function(childSnapshot) {
+      var item = childSnapshot.val();
+      console.log({item})
+      item.key = childSnapshot.key;
+
+      returnArr.push(item);
+    });
+
+    value.projects = returnArr;
     dispatch({
       type: ACTION_UPDATE_PORTFOLIO,
       value: value
@@ -21,7 +28,12 @@ export const getPortfolio = () => dispatch => {
 
   });
 }
-
+const snapshotToArray = snapshot => {
+  return Object.entries(snapshot).map(e => {
+    console.log('snapshotToArray')
+    return Object.assign(e[1], { key: e[0] })
+  });
+}
 export const getPortfolioProjectImageUrl = (projects) => dispatch => {
   projects.map(item => {
     item.images.map((image, index) => {

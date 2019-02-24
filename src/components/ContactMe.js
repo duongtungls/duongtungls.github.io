@@ -1,21 +1,86 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
+import {Field, Form, reduxForm} from 'redux-form'
+import { SubmissionError } from 'redux-form'
+import {bindActionCreators} from "redux";
+import {getGeneralInfo} from "../store/actions/generalInfoActions";
+import {connect} from "react-redux";
+import { submit } from 'redux-form'
+import {submitSendEmail} from "../common/SubmitSendEmail";
+
+const validate = values => {
+  const errors = {}
+  if (!values.name) {
+    errors.name = 'Required'
+  } else if (values.name.length > 15) {
+    errors.name = 'Must be 15 characters or less'
+  }
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address'
+  }
+  if (!values.message) {
+    errors.message = 'Required'
+  } else if (values.message.length < 50) {
+    errors.message = 'Must be more than 50 characters'
+  }
+  return errors
+}
 
 class ContactMe extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {loaded: false}
+    this.state = {
+      email: null,
+      name: null,
+      message: null,
+    }
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        loaded: true,
-      })
-    }, 1000)
+
+  }
+
+
+  renderField =
+    ({
+       input,
+       label,
+       type,
+       meta: {touched, error, warning}
+     }) => (
+      <div className="wrap">
+        <input {...input} placeholder={label} type={type}/>
+        {touched &&
+        ((error && <span className="text-danger">{error}</span>) ||
+          (warning && <span className="text-warning">{warning}</span>))}
+      </div>
+    )
+  renderFieldTextArea =
+    ({
+       input,
+       label,
+       type,
+       meta: {touched, error, warning}
+     }) => (
+      <div className="wrap">
+        <textarea {...input} placeholder={label} type={type}></textarea>
+        {touched &&
+        ((error && <span className="text-danger">{error}</span>) ||
+          (warning && <span className="text-warning">{warning}</span>))}
+      </div>
+    )
+
+  submitForm = () => {
+    console.log('submitForm')
+    this.props.dispatch(submit('contact-me'))
   }
 
   render() {
+
+    const { handleSubmit, pristine, reset, submitting, error } = this.props;
+
     return (
       <div className="dct_tm_section" id="contact">
         <div className="container">
@@ -45,23 +110,20 @@ class ContactMe extends Component {
               <div className="rightbox">
                 <div className="dct_tm_contact_wrap">
                   <div className="main_input_wrap">
-                    <form action="/" method="post" className="contact_form" id="contact_form">
-                      <div className="returnmessage"
-                           data-success="Your message has been received, We will contact you soon."></div>
+                    <Form onSubmit={handleSubmit} className="contact_form" id="contact-me">
+
                       <div className="empty_notice"><span>Please Fill Required Fields</span></div>
-                      <div className="wrap">
-                        <input id="name" type="text" placeholder="Your Name" />
-                      </div>
-                      <div className="wrap">
-                        <input id="email" type="text" placeholder="Your Email" />
-                      </div>
-                      <div className="wrap">
+                      <Field name="name" type="text" component={this.renderField} label="Your Name" />
+                      <Field name="email" type="email" component={this.renderField} label="Your Email" />
+                      <Field name="message" type="text" component={this.renderFieldTextArea} label="Your Message" />
+                      {/*<div className="wrap">
                         <textarea id="message" placeholder="Your Message"></textarea>
-                      </div>
+                      </div>*/}
+                      {error && <div className="returnmessage text-danger">{error}</div>}
                       <div className="dct_tm_button">
-                        <a id="send_message" href="#"><span>Send Message</span></a>
+                        <a id="send_message" onClick={this.submitForm}><span>Send Message</span></a>
                       </div>
-                    </form>
+                    </Form>
                   </div>
                 </div>
               </div>
@@ -78,4 +140,30 @@ class ContactMe extends Component {
   }
 }
 
-export default ContactMe;
+ContactMe = reduxForm({
+  form: 'contact-me', // a unique identifier for this form
+  validate,
+  onSubmit: submitSendEmail
+})(ContactMe)
+
+const mapStateToProps = (state) => ({
+  jobTitles: state.general.jobTitles,
+  firstName: state.general.firstName,
+  lastName: state.general.lastName,
+  definition: state.general.definition,
+  detail: state.general.detail,
+  abilities: state.abilities,
+})
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getGeneralInfo,
+    },
+    dispatch
+  )
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContactMe)

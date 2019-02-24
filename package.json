@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "crypto-js": "^3.1.9-1",
     "dotenv": "^6.2.0",
@@ -14,7 +16,9 @@
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
+    "qs": "latest",
     "react": "^16.8.1",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-countup": "^4.0.0",
     "react-dom": "^16.8.1",
@@ -28,10 +32,11 @@
     "react-typed": "^1.1.0",
     "reactstrap": "^7.1.0",
     "redux": "^4.0.1",
+    "redux-form": "^8.1.0",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3081 react-scripts start",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",

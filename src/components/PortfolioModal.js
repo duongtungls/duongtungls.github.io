@@ -137,7 +137,7 @@ class PortfolioModal extends Component {
             <Image src={item} alt={project.name}/>
 
           </div>
-          <CarouselCaption captionText={`Title ${index}`} captionHeader={`caption ${index}`} />
+          {/*<CarouselCaption captionText={`Title ${index}`} captionHeader={`caption ${index}`} />*/}
         </CarouselItem>
       );
     });
@@ -174,7 +174,7 @@ class PortfolioModal extends Component {
             <div className="col-lg-4 col-sm-12 h-100-custom portfolio-modal-content">
               <div className="h-100-custom overflow-auto">
                 <h5 className="card-title">{project.name}</h5>
-                <p className="card-text" dangerouslySetInnerHTML={{__html: project.description }} />
+                <p className="card-text" dangerouslySetInnerHTML={{__html: decodeURIComponent(project.description) }} />
                 <div className="text-primary d-inline-flex flex-wrap">
                   {project.tag && project.tag.map((item, index) => {
                     return(

@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
 	dct_tm_list_height();
 	dct_tm_portfolio();
 	dct_tm_anchor();
-	dct_tm_contact_form();
+	// dct_tm_contact_form();
 	dct_tm_owl_carousel();
 	// dct_tm_animate_text();
 	dct_tm_projects();

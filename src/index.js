@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Index from './pages/index';
+import ComingSoon from './pages/coming-soon';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux";
 import store from "./store/store";
@@ -17,7 +18,8 @@ const env = process.env;
 firebase.initializeApp(config);
 
 const index = <Provider store={store}>
-  <Index/>
+  {!env.REACT_APP_IS_MAINTAIN && <Index/>}
+  {env.REACT_APP_IS_MAINTAIN && <ComingSoon/>}
 </Provider>
 
 const initializeReactGA = () => {

@@ -1459,11 +1459,16 @@ img.svg {
   }
 
   .img-wrapper {
+    position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
       max-width: 100%;
+      min-height: 100%;
       height: auto;
       object-fit: cover;
     }
@@ -1499,7 +1504,7 @@ img.svg {
 }
 
 .entry {
-  position: relative;
+  //position: relative;
 }
 
 .dct_tm_portfolio_image_main {
@@ -2597,7 +2602,20 @@ img.svg {
       .carousel-container {
         padding-left: 0;
         padding-right: 0;
+        .carousel-control-next {
+          width: 8%;
+          background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(10,8,9,0.5) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(10,8,9,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(10,8,9,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
+        }
+        .carousel-control-prev {
+          width: 8%;
+
+          background: -moz-linear-gradient(left, rgba(10,8,9,0.5) 0%, rgba(110,119,116,0.25) 50%, rgba(174,188,191,0) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left, rgba(10,8,9,0.5) 0%,rgba(110,119,116,0.25) 50%,rgba(174,188,191,0) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right, rgba(10,8,9,0.5) 0%,rgba(110,119,116,0.25) 50%,rgba(174,188,191,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        }
         .carousel.slide {
           z-index: 1001;
           //opacity: 1!important;
@@ -2608,6 +2626,22 @@ img.svg {
           -webkit-transform: none;
           transform: none;
           margin-top: 0;
+
+          .carousel-indicators {
+            margin-right: 0;
+            margin-left: 0;
+            background: -moz-linear-gradient(top, rgba(174,188,191,0) 0%, rgba(10,14,10,0.25) 50%, rgba(10,8,9,0.5) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, rgba(174,188,191,0) 0%,rgba(10,14,10,0.25) 50%,rgba(10,8,9,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, rgba(174,188,191,0) 0%,rgba(10,14,10,0.25) 50%,rgba(10,8,9,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00aebcbf', endColorstr='#800a0809',GradientType=0 ); /* IE6-9 */
+
+            li {
+
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+            }
+          }
           .carousel-inner {
             width: 100%;
             height: 100%;
@@ -2632,7 +2666,7 @@ img.svg {
                   max-height: 100%;
                   width: auto;
                   height: auto;
-                  object-fit: cover;
+                  object-fit: contain;
                 }
               }
             }
@@ -2688,7 +2722,7 @@ img.svg {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: -15px;
+    //margin-left: -15px;
 
   }
 }

@@ -1,4 +1,5 @@
 import firebaseJson from "../firebase.enc.json";
+import emailJson from "../email.enc.json";
 
 const CryptoJS = require("crypto-js");
 
@@ -35,4 +36,14 @@ export const getFirebaseConfig = () => {
     newFirebase[decryptKey] = decrypt(firebaseJson[item]);
   })
   return newFirebase;
+}
+
+export const getEmailConfig = () => {
+  let keys = Object.keys(emailJson);
+  let result = {};
+  keys.map((item, index) => {
+    let decryptKey = decrypt(item);
+    result[decryptKey] = decrypt(emailJson[item]);
+  })
+  return result;
 }

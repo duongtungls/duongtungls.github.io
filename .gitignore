@@ -26,4 +26,7 @@ yarn-error.log*
 .idea
 src/firebase.json
 firebase.enc.json
+email.json
+email.*.json
 /src/firebase.json
+/src/email.json
