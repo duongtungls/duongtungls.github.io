@@ -80,7 +80,6 @@ class ComingSoon extends Component {
   render() {
     const { countBg, countdown, endDate } = this.state;
 
-    console.log({endDate: endDate.toISOString()})
     return(
      <React.Fragment>
        <div className="simpleslide100">
