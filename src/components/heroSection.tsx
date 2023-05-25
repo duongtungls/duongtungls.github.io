@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import Image from "next/image";
+import { ChevronDoubleDownIcon } from '@heroicons/react/24/solid'
+import DescriptionTyping from "@/components/descriptionTyping";
 
 export default function HeroSection() {
   return (
@@ -87,7 +89,12 @@ export default function HeroSection() {
           >
             Tung <span className={classNames("text-orange-500")}>Duong</span>
           </h3>
+          <DescriptionTyping />
         </div>
+      </div>
+
+      <div className={classNames("absolute", "left-2/4", "bottom-[5%]", "-translate-x-2/4", "z-50", "animate-bounce-2s" )}>
+        <ChevronDoubleDownIcon width={30} height={30} />
       </div>
     </div>
   );
