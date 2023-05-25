@@ -17,7 +17,7 @@ export default function HomeLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={classNames(inter.className, 'text-slate-700')}>
         <div className={classNames('w-full')}>
           <Sidebar />
           <div className={classNames('lg:pl-[300px]', 'w-full', 'h-auto', 'float-left')}>
