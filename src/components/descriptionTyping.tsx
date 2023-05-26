@@ -2,9 +2,9 @@
 import classNames from "classnames";
 import { TypeAnimation } from "react-type-animation";
 
-export default function DescriptionTyping() {
+export default function DescriptionTyping({ className }: any) {
   return (
-    <p className={classNames("text-2xl")}>
+    <p className={classNames("text-2xl", className)}>
       {`I'm a `}
       <TypeAnimation
         sequence={[

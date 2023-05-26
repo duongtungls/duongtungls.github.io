@@ -17,10 +17,10 @@ export default function HomeLayout({
 }) {
   return (
     <html lang="en">
-      <body className={classNames(inter.className, 'text-slate-700')}>
+      <body className={classNames(inter.className, 'text-slate-700', 'bg-white')}>
         <div className={classNames('w-full')}>
           <Sidebar />
-          <div className={classNames('lg:pl-[300px]', 'w-full', 'h-auto', 'float-left')}>
+          <div className={classNames('lg:pl-[300px]', 'w-full', 'h-auto')}>
             {children}
           </div>
         </div>

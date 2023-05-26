@@ -9,8 +9,6 @@ export default function HeroSection() {
       className={classNames(
         "w-full",
         "h-auto",
-        "clear-both",
-        "float-left",
         "relative",
         "box-border"
       )}
@@ -89,11 +87,11 @@ export default function HeroSection() {
           >
             Tung <span className={classNames("text-orange-500")}>Duong</span>
           </h3>
-          <DescriptionTyping />
+          <DescriptionTyping className={classNames("text-white")}/>
         </div>
       </div>
 
-      <div className={classNames("absolute", "left-2/4", "bottom-[5%]", "-translate-x-2/4", "z-50", "animate-bounce-2s" )}>
+      <div className={classNames("absolute", "left-2/4", "bottom-[5%]", "-translate-x-2/4", "z-50", "animate-bounce-2s", "text-white" )}>
         <ChevronDoubleDownIcon width={30} height={30} />
       </div>
     </div>
