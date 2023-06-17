@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import './css/globals.css'
 import { Inter } from 'next/font/google'
 
@@ -15,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={classNames(inter.className, 'text-slate-700', 'bg-white')}>{children}</body>
     </html>
   )
 }

@@ -20,7 +20,7 @@ export default function HomeLayout({
       <body className={classNames(inter.className, 'text-slate-700', 'bg-white')}>
         <div className={classNames('w-full')}>
           <Sidebar />
-          <div className={classNames('lg:pl-[300px]', 'w-full', 'h-auto')}>
+          <div className={classNames('lg:pl-[300px]', 'w-full', 'h-auto', 'bg-white')}>
             {children}
           </div>
         </div>
