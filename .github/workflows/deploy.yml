@@ -28,37 +28,31 @@ jobs:
       - name: Build Next.js
         run: npm run build
       
-      # Debug output directories
-      - name: Debug directories
+      # Verify static output
+      - name: Verify static output
         run: |
-          echo "Checking directories"
-          ls -la
-          echo "Checking .next directory"
-          ls -la .next || echo ".next directory not found"
-          echo "Checking out directory"
-          ls -la out || echo "out directory not found"
-      
-      # Determine which directory to deploy and create .nojekyll file
-      - name: Prepare deployment directory
-        id: deploy-dir
-        run: |
-          if [ -d "out" ] && [ -f "out/_next/static/chunks/main.js" ]; then
-            echo "Using 'out' directory for deployment"
-            echo "DEPLOY_DIR=out" >> $GITHUB_OUTPUT
-            touch out/.nojekyll
-          elif [ -d ".next" ]; then
-            echo "Using '.next' directory for deployment"
-            echo "DEPLOY_DIR=.next" >> $GITHUB_OUTPUT
-            touch .next/.nojekyll
+          echo "Checking for static HTML files:"
+          if [ -d "out" ] && [ -f "out/index.html" ]; then
+            echo "✓ Static build confirmed - out/index.html exists"
+            echo "Listing key files in out directory:"
+            find out -name "index.html" | head -n 5
+            echo "DEPLOY_DIR=out" >> $GITHUB_ENV
           else
-            echo "No suitable build directory found. Check your build configuration."
+            echo "❌ Static build not found or incomplete"
+            echo "Current directory structure:"
+            find . -maxdepth 2 -type d
+            echo "Error: Could not find proper static build output"
             exit 1
           fi
+      
+      # Create .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
       
       # Deploy to gh-pages branch
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ${{ steps.deploy-dir.outputs.DEPLOY_DIR }}
+          folder: ${{ env.DEPLOY_DIR }}
           clean: true

@@ -10,16 +10,13 @@ const nextConfig: NextConfig = {
   },
 
   // The following ensures that Next.js uses trailing slashes for URLs
-  // which can help with GitHub Pages hosting
+  // which helps create proper index.html files in subdirectories
   trailingSlash: true,
 
   // Disable sourcemaps in production for smaller build output
   productionBrowserSourceMaps: false,
   
-  // This ensures assets are properly referenced when deployed to GitHub Pages
-  // No basePath needed for username.github.io repositories
-  // If this were a project page (username.github.io/project), you'd need:
-  // basePath: '/project',
+  basePath: process.env.PAGES_BASE_PATH || '',
 };
 
 export default nextConfig;
