@@ -1,13 +1,71 @@
 'use client';
 
 import Image from 'next/image';
-import { GitlabIcon as GitHub, Linkedin, Mail, ArrowDown } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { motion, useAnimationControls, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { useState, useEffect } from 'react';
 
 const Background3D = dynamic(() => import('./Background3D'), { ssr: false });
 
+// Typing text animation component
+const TypingText = ({ texts }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeout;
+    const currentText = texts[currentIndex];
+
+    // Logic for typing and deleting
+    if (!isDeleting && displayText === currentText) {
+      // Pause at full text
+      timeout = setTimeout(() => setIsDeleting(true), 1500);
+    } else if (isDeleting && displayText === '') {
+      // Change to next text
+      setIsDeleting(false);
+      setCurrentIndex(prevIndex => (prevIndex + 1) % texts.length);
+    } else {
+      // Typing or deleting animation
+      timeout = setTimeout(
+        () => {
+          const nextChar = isDeleting
+            ? displayText.substring(0, displayText.length - 1)
+            : currentText.substring(0, displayText.length + 1);
+
+          setDisplayText(nextChar);
+        },
+        isDeleting ? 50 : 120
+      ); // Faster deletion than typing
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentIndex, texts]);
+
+  return (
+    <div className="h-8 flex items-center justify-center">
+      <motion.span
+        className="text-xl md:text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400"
+        key={displayText} // Re-render on text change
+        initial={{ opacity: 0.8 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      >
+        {displayText}
+        <motion.span
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ repeat: Infinity, duration: 0.8 }}
+          className="inline-block ml-1 w-[3px] h-6 bg-current"
+        />
+      </motion.span>
+    </div>
+  );
+};
+
 export default function Hero() {
+  const typingTexts = ["I'm a full-stack developer", "I'm a mobile developer", "I'm a marathoner"];
+
   return (
     <section
       id="hero"
@@ -32,33 +90,41 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-              Duong Cong Tung
+              Tung Duong
             </h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700 dark:text-gray-300">
-              Full Stack Developer
+              Senior Full Stack Developer
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Crafting exceptional digital experiences with modern web technologies. Specialized in
-              building scalable full-stack applications using a variety of frontend and backend
-              technologies.
-            </p>
+            <div className="relative mb-8">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                Passionate about crafting digital experiences that seamlessly blend form and
+                function. With expertise in full-stack development and a keen eye for detail, I
+                transform complex challenges into elegant, user-centric solutions. My code
+                doesn&apos;t just work—it empowers, innovates, and inspires.
+              </p>
+              <div className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full lg:block hidden"></div>
+            </div>
             <div className="flex justify-center lg:justify-start space-x-4 mb-8">
               <a
-                href="#"
+                href="https://github.com/duongtungls"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="GitHub Profile"
               >
-                <GitHub className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <Github className="w-6 h-6 text-gray-700 dark:text-gray-300" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/tung-duongb65015133"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:duongtungls@gmail.com"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="Email Contact"
               >
@@ -90,7 +156,7 @@ export default function Hero() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://picsum.photos/384"
-                  alt="Duong Cong Tung"
+                  alt="Tung Duong"
                   width={384}
                   height={384}
                   className="object-cover"
@@ -104,12 +170,22 @@ export default function Hero() {
 
       {/* Decorative Elements */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8, duration: 0.6 }}
       >
-        <div className="w-1 h-12 bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full animate-pulse"></div>
+        <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full animate-pulse"></div>
+      </motion.div>
+
+      {/* Typing text animation */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-full text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
+        <TypingText texts={typingTexts} />
       </motion.div>
     </section>
   );

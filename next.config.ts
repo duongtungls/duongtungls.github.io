@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
 
   // Disable sourcemaps in production for smaller build output
   productionBrowserSourceMaps: false,
-  
+
   basePath: process.env.PAGES_BASE_PATH || '',
 };
 

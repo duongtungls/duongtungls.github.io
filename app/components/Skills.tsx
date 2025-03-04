@@ -12,6 +12,8 @@ import {
   Cpu,
   Globe,
   Workflow,
+  Smartphone,
+  Cloud,
 } from 'lucide-react';
 import AnimatedSectionHeader from './AnimatedSectionHeader';
 
@@ -27,9 +29,9 @@ const skills = [
   {
     icon: Code,
     name: 'Frontend Development',
-    tech: 'React.js, Next.js',
+    tech: 'React.js, Next.js, Redux',
     description:
-      'Building responsive and interactive user interfaces with modern React features and Next.js for optimal performance.',
+      'Building responsive and interactive web applications with modern React ecosystem and server-side rendering for optimal performance.',
     color: 'text-blue-500',
   },
   {
@@ -37,67 +39,63 @@ const skills = [
     name: 'Backend Development',
     tech: 'Node.js, Express, Fastify',
     description:
-      'Creating robust server-side applications with focus on scalability and clean architecture.',
+      'Creating robust and scalable server-side applications with focus on clean architecture and API design.',
     color: 'text-green-500',
+  },
+  {
+    icon: Smartphone,
+    name: 'Mobile Development',
+    tech: 'React Native, Expo, Native Modules',
+    description:
+      'Developing cross-platform mobile applications with React Native, custom native modules, and Expo for rapid deployment.',
+    color: 'text-orange-500',
   },
   {
     icon: Database,
     name: 'Database Management',
-    tech: 'MongoDB, Mongoose',
+    tech: 'MongoDB, PostgreSQL, MySQL, Supabase, Firebase',
     description:
-      'Designing and implementing efficient database schemas and queries for optimal data management.',
+      'Working with both SQL and NoSQL databases to design efficient schemas and optimize queries for various application needs.',
     color: 'text-purple-500',
   },
   {
-    icon: Layout,
-    name: 'UI/UX Design',
-    tech: 'Tailwind CSS, Material UI',
-    description:
-      'Crafting beautiful and intuitive user interfaces with modern design principles and frameworks.',
-    color: 'text-pink-500',
-  },
-  {
-    icon: GitBranch,
-    name: 'Version Control',
-    tech: 'Git, GitHub',
-    description:
-      'Managing code versions efficiently with Git and collaborating effectively through GitHub.',
-    color: 'text-orange-500',
-  },
-  {
     icon: Terminal,
-    name: 'TypeScript',
-    tech: 'TypeScript, JavaScript',
-    description: 'Writing type-safe code for better maintainability and developer experience.',
+    name: 'TypeScript/JavaScript',
+    tech: 'ES6+, TypeScript, Type Safety',
+    description:
+      'Writing maintainable and type-safe code with modern JavaScript features and TypeScript for improved developer experience.',
     color: 'text-yellow-500',
   },
   {
     icon: Layers,
     name: 'State Management',
-    tech: 'Redux, Context API',
-    description: 'Managing complex application state with modern state management solutions.',
+    tech: 'Redux, Context API, Recoil, Zustand',
+    description:
+      'Implementing efficient state management solutions for complex web and mobile applications.',
     color: 'text-indigo-500',
   },
   {
-    icon: Cpu,
-    name: 'API Development',
-    tech: 'REST, GraphQL',
-    description: 'Designing and implementing efficient APIs for seamless data communication.',
-    color: 'text-red-500',
+    icon: GitBranch,
+    name: 'Version Control & CI/CD',
+    tech: 'Git, GitHub, GitHub Actions, CI/CD',
+    description:
+      'Managing code versions and implementing automated testing and deployment pipelines for efficient development workflows.',
+    color: 'text-orange-500',
   },
   {
     icon: Globe,
     name: 'Web Performance',
-    tech: 'Optimization, SEO',
+    tech: 'Optimization, SSR, Caching, SEO',
     description:
-      'Optimizing web applications for speed, accessibility, and search engine visibility.',
+      'Optimizing web applications for speed, accessibility, and search engine visibility using modern performance techniques.',
     color: 'text-teal-500',
   },
   {
-    icon: Workflow,
-    name: 'Agile Methodologies',
-    tech: 'Scrum, Kanban',
-    description: 'Working efficiently in agile environments with focus on continuous delivery.',
+    icon: Cloud,
+    name: 'Cloud Services',
+    tech: 'AWS, Firebase, Vercel, Netlify',
+    description:
+      'Deploying and managing applications using various cloud platforms and services for scalable infrastructure.',
     color: 'text-cyan-500',
   },
 ];
