@@ -58,8 +58,8 @@ export default function About() {
             </p>
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               My expertise extends to modern frameworks like Next.js and state management tools like
-              Redux. I'm committed to writing clean, efficient code and staying up-to-date with the
-              latest industry trends to deliver cutting-edge solutions for my clients.
+              Redux. I&apos;m committed to writing clean, efficient code and staying up-to-date with
+              the latest industry trends to deliver cutting-edge solutions for my clients.
             </p>
           </motion.div>
           <motion.div

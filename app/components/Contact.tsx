@@ -31,6 +31,7 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: FormData) => {
+    console.log('Form data:', data);
     setIsSubmitting(true);
     try {
       // Here you would typically send the form data to your backend

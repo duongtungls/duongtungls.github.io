@@ -6,14 +6,14 @@ import { useRef, useEffect, useState, Suspense } from 'react';
 import * as THREE from 'three';
 
 // Model component that loads and animates the GLB file
-const RunningModel = ({ modelPath }) => {
-  const group = useRef();
-  const [animationName, setAnimationName] = useState(null);
+const RunningModel = ({ modelPath }: { modelPath: string }) => {
+  const group = useRef<THREE.Group>(null);
+  const [animationName, setAnimationName] = useState<string | null>(null);
 
   // Load the model with useGLTF
   const { scene, animations } = useGLTF(modelPath);
   // Set up animations
-  const { actions, mixer } = useAnimations(animations, group);
+  const { actions } = useAnimations(animations, group);
 
   // Play the first animation on component mount
   useEffect(() => {
