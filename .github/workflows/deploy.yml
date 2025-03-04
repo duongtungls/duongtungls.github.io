@@ -27,18 +27,38 @@ jobs:
       
       - name: Build Next.js
         run: npm run build
-        env:
-          NEXT_OUTPUT_STANDALONE: true
-          NEXT_OUTPUT_FILETRACING: true
       
-      # Add .nojekyll file to tell GitHub pages not to use Jekyll
-      - name: Add .nojekyll file
-        run: touch out/.nojekyll
+      # Debug output directories
+      - name: Debug directories
+        run: |
+          echo "Checking directories"
+          ls -la
+          echo "Checking .next directory"
+          ls -la .next || echo ".next directory not found"
+          echo "Checking out directory"
+          ls -la out || echo "out directory not found"
+      
+      # Determine which directory to deploy and create .nojekyll file
+      - name: Prepare deployment directory
+        id: deploy-dir
+        run: |
+          if [ -d "out" ] && [ -f "out/_next/static/chunks/main.js" ]; then
+            echo "Using 'out' directory for deployment"
+            echo "DEPLOY_DIR=out" >> $GITHUB_OUTPUT
+            touch out/.nojekyll
+          elif [ -d ".next" ]; then
+            echo "Using '.next' directory for deployment"
+            echo "DEPLOY_DIR=.next" >> $GITHUB_OUTPUT
+            touch .next/.nojekyll
+          else
+            echo "No suitable build directory found. Check your build configuration."
+            exit 1
+          fi
       
       # Deploy to gh-pages branch
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: out
+          folder: ${{ steps.deploy-dir.outputs.DEPLOY_DIR }}
           clean: true
