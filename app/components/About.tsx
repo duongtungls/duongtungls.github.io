@@ -14,12 +14,12 @@ export default function About() {
     {
       icon: <Server className="w-8 h-8 text-green-500" />,
       title: 'Backend',
-      description: 'Node.js, Express, Fastify',
+      description: 'Node.js, Express, Laravel',
     },
     {
       icon: <Smartphone className="w-8 h-8 text-orange-500" />,
       title: 'Mobile',
-      description: 'React Native, Expo, Native Modules',
+      description: 'React Native, Android, Expo, Native Modules',
     },
     {
       icon: <Database className="w-8 h-8 text-purple-500" />,

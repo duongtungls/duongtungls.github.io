@@ -37,7 +37,7 @@ const skills = [
   {
     icon: Server,
     name: 'Backend Development',
-    tech: 'Node.js, Express, Fastify',
+    tech: 'Node.js, Express, Laravel',
     description:
       'Creating robust and scalable server-side applications with focus on clean architecture and API design.',
     color: 'text-green-500',
@@ -45,9 +45,9 @@ const skills = [
   {
     icon: Smartphone,
     name: 'Mobile Development',
-    tech: 'React Native, Expo, Native Modules',
+    tech: 'React Native, Android, Expo, Native Modules',
     description:
-      'Developing cross-platform mobile applications with React Native, custom native modules, and Expo for rapid deployment.',
+      'Developing cross-platform mobile applications with React Native, Android, custom native modules, and Expo for rapid deployment.',
     color: 'text-orange-500',
   },
   {

@@ -32,7 +32,7 @@ export default function Services() {
       icon: <Server className="w-12 h-12 text-green-500" />,
       title: 'Backend Development',
       description:
-        'Scalable and efficient server-side solutions with Node.js, Express, and Fastify. I build robust APIs and microservices that power your applications with reliability and performance.',
+        'Scalable and efficient server-side solutions with Node.js, Express, and Laravel. I build robust APIs and microservices that power your applications with reliability and performance.',
     },
     {
       icon: <Database className="w-12 h-12 text-purple-500" />,
