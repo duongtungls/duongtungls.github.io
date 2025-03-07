@@ -1,21 +1,79 @@
 'use client';
 
 import Image from 'next/image';
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
-import { motion, useAnimationControls, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Mail, ArrowDown, FileText } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Background3D = dynamic(() => import('./Background3D'), { ssr: false });
 
+// Image slider component with animation
+const ImageStack = () => {
+  const images = [
+    '/hero/tung-photos/01.jpg',
+    '/hero/tung-photos/02.jpg',
+    '/hero/tung-photos/03.jpg',
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-3xl transform rotate-6 opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 dark:from-purple-600 dark:to-blue-600 rounded-3xl transform -rotate-6 opacity-50"></div>
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className="w-full h-full"
+          >
+            <Image
+              src={images[currentIndex]}
+              alt="Duong Cong Tung"
+              width={384}
+              height={384}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Image indicator dots */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-white/50'}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Typing text animation component
-const TypingText = ({ texts }) => {
+const TypingText = ({ texts }: { texts: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let timeout;
+    let timeout: string | number | NodeJS.Timeout | undefined;
     const currentText = texts[currentIndex];
 
     // Logic for typing and deleting
@@ -89,9 +147,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-              Tung Duong
+            <h1 className="text-4xl md:text-5xl lg:text-6xl lg:leading-18 font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              Duong Cong Tung
             </h1>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              (Tung Duong)
+            </h2>
             <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700 dark:text-gray-300">
               Senior Full Stack Developer
             </h2>
@@ -131,39 +192,39 @@ export default function Hero() {
                 <Mail className="w-6 h-6 text-gray-700 dark:text-gray-300" />
               </a>
             </div>
-            <motion.button
-              onClick={() =>
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
-              }
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-              <ArrowDown className="w-4 h-4" />
-            </motion.button>
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <motion.button
+                onClick={() =>
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+                }
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Read More
+                <ArrowDown className="w-4 h-4" />
+              </motion.button>
+
+              <Link href="/print" passHref>
+                <motion.div
+                  className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FileText className="w-4 h-4" />
+                  Download Resume
+                </motion.div>
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
-            className="lg:w-1/2"
+            className="lg:w-1/2 mt-8 lg:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-3xl transform rotate-6 opacity-50"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 dark:from-purple-600 dark:to-blue-600 rounded-3xl transform -rotate-6 opacity-50"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://picsum.photos/384"
-                  alt="Tung Duong"
-                  width={384}
-                  height={384}
-                  className="object-cover"
-                  priority
-                />
-              </div>
-            </div>
+            <ImageStack />
           </motion.div>
         </div>
       </div>

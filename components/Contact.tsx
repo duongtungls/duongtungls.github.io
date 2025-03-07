@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send, Loader2, Github } from 'lucide-react';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { useForm as useFormspree } from '@formspree/react'; // Add this import
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -18,9 +19,12 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  // Replace "mqapzqpo" with your actual Formspree form ID
+  const [formspreeState, sendToFormspree] = useFormspree('mqapzqpo');
+
+  // React Hook Form setup for validation
   const {
     register,
     handleSubmit,
@@ -30,20 +34,19 @@ export default function Contact() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    console.log('Form data:', data);
-    setIsSubmitting(true);
-    try {
-      // Here you would typically send the form data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
-      setSubmitSuccess(true);
+  // Reset form when submission succeeds
+  useEffect(() => {
+    if (formspreeState.succeeded) {
       reset();
-      setTimeout(() => setSubmitSuccess(false), 3000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      const timer = setTimeout(() => setSubmitSuccess(false), 100);
+      return () => clearTimeout(timer);
     }
+  }, [formspreeState.succeeded, reset]);
+
+  // Combined submit handler - validate with React Hook Form, submit with Formspree
+  const onSubmit = async (data: FormData) => {
+    await sendToFormspree(data);
   };
 
   return (
@@ -80,11 +83,11 @@ export default function Contact() {
                   duongtungls@gmail.com
                 </a>
                 <a
-                  href="tel:+84123456789"
+                  href="tel:+84382563034"
                   className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                 >
                   <Phone className="w-6 h-6 mr-3 text-blue-600" />
-                  +84-123-456789
+                  +84-382-563034
                 </a>
                 <div className="flex items-center text-gray-600 dark:text-gray-300">
                   <MapPin className="w-6 h-6 mr-3 text-blue-600" />
@@ -172,6 +175,7 @@ export default function Contact() {
                   <input
                     {...register('name')}
                     type="text"
+                    name="name" // Important for Formspree
                     className={`w-full px-4 py-2 rounded-md border ${
                       errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     } focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white`}
@@ -190,6 +194,7 @@ export default function Contact() {
                   <input
                     {...register('email')}
                     type="email"
+                    name="email" // Important for Formspree
                     className={`w-full px-4 py-2 rounded-md border ${
                       errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     } focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white`}
@@ -209,6 +214,7 @@ export default function Contact() {
                 <input
                   {...register('subject')}
                   type="text"
+                  name="subject" // Important for Formspree
                   className={`w-full px-4 py-2 rounded-md border ${
                     errors.subject ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                   } focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white`}
@@ -226,6 +232,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   {...register('message')}
+                  name="message" // Important for Formspree
                   rows={4}
                   className={`w-full px-4 py-2 rounded-md border ${
                     errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
@@ -238,19 +245,34 @@ export default function Contact() {
               <div className="mt-6">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={formspreeState.submitting}
                   className={`w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center ${
-                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                    formspreeState.submitting ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
                 >
-                  {isSubmitting ? (
+                  {formspreeState.submitting ? (
                     <Loader2 className="w-5 h-5 animate-spin mr-2" />
                   ) : (
                     <Send className="w-5 h-5 mr-2" />
                   )}
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {formspreeState.submitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
+
+              {/* Formspree errors */}
+              {formspreeState.errors && (
+                <div className="mt-4 p-4 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 rounded-md">
+                  {Object.keys(formspreeState.errors).map(key => (
+                    <p key={key}>
+                      {formspreeState.errors &&
+                        // Use type assertion to handle the indexing
+                        (formspreeState.errors as unknown as Record<string, string>)[key]}
+                    </p>
+                  ))}
+                </div>
+              )}
+
+              {/* Success message */}
               {submitSuccess && (
                 <div className="mt-4 p-4 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-md">
                   Message sent successfully!
@@ -262,7 +284,7 @@ export default function Contact() {
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
         <Image
-          src="https://picsum.photos/256"
+          src="/hero/tung-photos/02.jpg"
           alt="Decorative background"
           width={256}
           height={256}

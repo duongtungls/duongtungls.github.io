@@ -5,13 +5,10 @@ import {
   Code,
   Database,
   Server,
-  Layout,
   GitBranch,
   Terminal,
   Layers,
-  Cpu,
   Globe,
-  Workflow,
   Smartphone,
   Cloud,
 } from 'lucide-react';

@@ -113,8 +113,8 @@ export default function Experience() {
       <div className="container mx-auto px-4 relative z-10">
         <AnimatedSectionHeader title="Professional Experience" />
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200 dark:bg-blue-800"></div>
+          {/* Timeline line - centered on desktop, left-aligned on mobile */}
+          <div className="absolute md:left-1/2 left-4 md:transform md:-translate-x-1/2 w-1 h-full bg-blue-200 dark:bg-blue-800"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -123,13 +123,20 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`mb-12 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}
+              className={`mb-12 flex flex-col md:flex-row md:justify-between md:items-center w-full ${
+                index % 2 === 0 ? 'md:flex-row-reverse' : ''
+              }`}
             >
-              <div className="w-5/12"></div>
-              <div className="w-2/12 flex justify-center">
-                <div className="w-8 h-8 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 z-10"></div>
+              {/* Empty space div - hidden on mobile */}
+              <div className="md:w-5/12 hidden md:block"></div>
+
+              {/* Timeline dot - positioned left on mobile, centered on desktop */}
+              <div className="md:w-2/12 w-full flex md:justify-center justify-start pl-0 mb-4 md:mb-0 relative">
+                <div className="w-8 h-8 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 z-10 md:static absolute left-0"></div>
               </div>
-              <div className="w-5/12">
+
+              {/* Content - full width on mobile, 5/12 on desktop */}
+              <div className="md:w-5/12 w-full pl-12 md:pl-0">
                 <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
                   <h3 className="text-xl font-bold mb-2 dark:text-white">{exp.role}</h3>
                   <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
@@ -158,7 +165,7 @@ export default function Experience() {
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
         <Image
-          src="https://picsum.photos/256"
+          src="/hero/tung-photos/02.jpg"
           alt="Decorative background"
           width={256}
           height={256}

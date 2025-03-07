@@ -40,7 +40,7 @@ const RunningModel = ({ modelPath }: { modelPath: string }) => {
     } catch (error) {
       console.error('Error setting up model animation:', error);
     }
-  }, [actions, animations]);
+  }, [actions, animationName, animations]);
 
   return (
     <group ref={group} position={[0, -2, 0]} scale={1.5}>

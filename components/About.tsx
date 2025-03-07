@@ -48,19 +48,19 @@ export default function About() {
         >
           About Me
         </motion.h2>
-        <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="flex flex-col xl:flex-row items-center justify-between">
           <motion.div
-            className="md:w-1/2 mb-8 md:mb-0"
+            className="xl:w-1/2 mb-8 xl:mb-0"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              I'm a full-stack developer with a passion for crafting elegant solutions to complex
-              problems. Specializing in JavaScript ecosystems, I blend technical expertise with
-              creative thinking to build applications that not only function flawlessly but also
-              delight users with their intuitive design and performance.
+              I&apos;m a full-stack developer with a passion for crafting elegant solutions to
+              complex problems. Specializing in JavaScript ecosystems, I blend technical expertise
+              with creative thinking to build applications that not only function flawlessly but
+              also delight users with their intuitive design and performance.
             </p>
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               Beyond coding, I&apos;m an avid marathoner who applies the same discipline and
@@ -71,7 +71,7 @@ export default function About() {
             </p>
           </motion.div>
           <motion.div
-            className="md:w-1/2 grid grid-cols-3 gap-4"
+            className="xl:w-1/2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -89,7 +89,7 @@ export default function About() {
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
         <Image
-          src="https://picsum.photos/256"
+          src="/hero/tung-photos/02.jpg"
           alt="Decorative background"
           width={256}
           height={256}
