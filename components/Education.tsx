@@ -8,14 +8,14 @@ import { motion } from 'framer-motion';
 export default function Education() {
   const education = [
     {
-      degree: 'Bachelor in Mathematics and Computer Science',
-      institution: 'Thai Nguyen University',
-      period: '2010 – 2014',
+      degree: 'Bachelor of Education in Mathematics',
+      institution: 'Thai Nguyen University - The Education University',
+      period: '2019 – 2013',
       achievements: [
-        'Strong foundation in mathematical analysis and computer science principles',
+        'Strong foundation in mathematical analysis and abstract algebra',
         'Developed problem-solving skills through rigorous mathematical training',
         'Applied computational methods to solve complex problems',
-        'Gained expertise in programming fundamentals and algorithms',
+        'Gained expertise in logical reasoning and analytical thinking',
       ],
     },
   ];

@@ -11,6 +11,7 @@ import {
   Globe,
   Smartphone,
   Cloud,
+  Brain,
 } from 'lucide-react';
 import AnimatedSectionHeader from './AnimatedSectionHeader';
 
@@ -23,6 +24,14 @@ const SkillIcon = ({ icon: Icon, color }: { icon: LucideIcon; color: string }) =
 );
 
 const skills = [
+  {
+    icon: Brain,
+    name: 'AI & Machine Learning',
+    tech: 'Ollama, LLMs, HuggingFace, Stable Diffusion, Langchain, OpenAI',
+    description:
+      'Developing with local and cloud-based AI models, fine-tuning with LoRA, creating image generation workflows with ComfyUI, and building AI automation pipelines with N8N.',
+    color: 'text-pink-500',
+  },
   {
     icon: Code,
     name: 'Frontend Development',

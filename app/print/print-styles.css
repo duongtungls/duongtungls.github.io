@@ -63,8 +63,8 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
-  color: white;
+  /* background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%); */
+  /* color: white; */
   padding: 30px;
   position: relative;
 }
@@ -347,6 +347,7 @@ footer {
 @media print {
   body {
       background-color: white;
+      font-size: 11px; /* Reduced from 14px */
   }
   
   .print-controls {
@@ -362,9 +363,10 @@ footer {
   }
   
   header {
-      background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+      /* background: linear-gradient(135deg, var(--tertiary-color) 0%, var(--primary-color) 50%, var(--secondary-color) 100%); */
       -webkit-print-color-adjust: exact; /* Ensure background colors print in Chrome */
       color-adjust: exact; /* Standard version of the above property */
+      padding: 20px !important; /* Reduced from 30px */
   }
   
   .about, 
@@ -378,10 +380,11 @@ footer {
   
   .experience-item {
       page-break-inside: avoid;
+      margin-bottom: 10px !important; /* Reduced from 15px */
   }
   
   section {
-      padding: 15px 20px;
+      padding: 10px 20px; /* Reduced from 15px 20px */
   }
 
   /* Ensure proper page breaks */
@@ -393,6 +396,258 @@ footer {
   .projects-grid {
       grid-template-columns: repeat(2, 1fr);
   }
+
+  /* Force page breaks */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  /* Prevent unwanted breaks */
+  .experience-item, .skill-category {
+    break-inside: avoid;
+  }
+  
+  /* Optimize spacing */
+  section {
+    padding: 10px 20px; /* Reduced from 15px 20px */
+    margin-bottom: 0;
+  }
+  
+  /* More compact design for print */
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr) !important; /* Force 4 columns */
+    gap: 0.5rem !important; /* Reduced from 0.75rem */
+    margin-bottom: 0.5rem !important; /* Reduced from 1rem */
+  }
+  
+  .skill-category {
+    margin-bottom: 5px !important; /* Reduced from 10px */
+  }
+  
+  .skill-category h3 {
+    font-size: 0.85rem !important; /* Reduced from 0.95rem */
+    margin-bottom: 0 !important;
+    font-weight: 600;
+  }
+  
+  .skill-category p {
+    font-size: 0.75rem !important; /* Reduced from 0.85rem */
+    line-height: 1.3;
+  }
+  
+  /* Make experience items more compact */
+  .experience-item {
+    margin-bottom: 10px !important; /* Reduced from 15px */
+  }
+  
+  .role-company ul li {
+    margin-bottom: 1px !important; /* Reduced from 2px */
+    line-height: 1.4 !important;
+  }
+  
+  /* Compact footer */
+  footer {
+    padding: 8px 20px !important; /* Reduced from 10px 20px */
+    font-size: 0.75rem !important; /* Reduced from 0.85rem */
+  }
+  
+  /* Side by side layout */
+  .side-by-side {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .side-by-side .about {
+    flex: 3;
+  }
+  
+  .side-by-side .education {
+    flex: 2;
+  }
+  
+  /* Make previous roles grid */
+  .prev-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  /* Compact section */
+  .compact-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .compact-section .education-item {
+    margin-bottom: 10px;
+  }
+  
+  .compact-section .services-list {
+    gap: 5px;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+
+  /* Reduced header elements */
+  .profile-info h1 {
+    font-size: 1.8rem; /* Reduced from 2.2rem */
+  }
+  
+  .profile-info h2 {
+    font-size: 1.1rem; /* Reduced from 1.3rem */
+    margin-bottom: 10px; /* Reduced from 15px */
+  }
+  
+  .profile-info .tagline {
+    font-size: 0.85rem; /* Reduced from 0.95rem */
+    line-height: 1.4; /* Reduced from 1.5 */
+  }
+  
+  section h2 {
+    font-size: 1.3rem; /* Reduced from 1.5rem */
+    margin-bottom: 10px; /* Reduced from 15px */
+  }
+  
+  .date-location {
+    min-width: 150px !important; /* Reduced from 180px */
+    padding-right: 10px !important; /* Reduced from 20px */
+  }
+  
+  .date {
+    font-size: 0.8rem !important; /* Reduced from 0.9rem */
+    margin-bottom: 2px !important; /* Reduced from 5px */
+  }
+  
+  .location {
+    font-size: 0.75rem !important; /* Reduced from 0.85rem */
+  }
+  
+  .role-company h3 {
+    font-size: 0.95rem !important; /* Reduced from 1.1rem */
+    margin-bottom: 1px !important; /* Reduced from 2px */
+  }
+  
+  .role-company h4 {
+    font-size: 0.85rem !important; /* Reduced from 1rem */
+    margin-bottom: 4px !important; /* Reduced from 8px */
+  }
+  
+  .role-company ul {
+    margin-left: 14px !important; /* Reduced from 18px */
+    font-size: 0.8rem !important; /* Reduced from 0.9rem */
+  }
+  
+  /* Compacted previous experience section */
+  .previous-experience {
+    margin-top: 15px !important; /* Reduced from 25px */
+    padding-top: 10px !important; /* Reduced from 15px */
+  }
+  
+  .previous-experience h3 {
+    font-size: 0.95rem !important; /* Reduced from 1.1rem */
+    margin-bottom: 8px !important; /* Reduced from 10px */
+  }
+  
+  .prev-role {
+    font-size: 0.8rem !important; /* Reduced from 0.9rem */
+    margin-bottom: 4px !important; /* Reduced from 8px */
+  }
+  
+  /* Compact "About Me" section */
+  .about p {
+    font-size: 0.85rem !important; /* Reduced from 0.95rem */
+    margin-bottom: 10px !important; /* Reduced from 15px */
+    line-height: 1.4 !important;
+  }
+  
+  .tech-summary {
+    gap: 8px !important; /* Reduced from 12px */
+    margin-top: 10px !important; /* Reduced from 15px */
+  }
+  
+  .tech-item {
+    padding: 4px 8px !important; /* Reduced from 6px 12px */
+    font-size: 0.8rem !important; /* Reduced from 0.9rem */
+  }
+  
+  /* Compact education section */
+  .education-item {
+    margin-bottom: 10px !important; /* Reduced from 20px */
+  }
+  
+  .education-item h3 {
+    font-size: 0.95rem !important; /* Reduced from 1.1rem */
+  }
+  
+  .education-item h4 {
+    font-size: 0.85rem !important; /* Reduced from 0.95rem */
+    margin-bottom: 4px !important; /* Reduced from 8px */
+  }
+  
+  .services-list {
+    gap: 6px !important; /* Reduced from 10px */
+    margin-top: 8px !important; /* Reduced from 15px */
+  }
+  
+  .service-item {
+    padding: 5px 8px !important; /* Reduced from 8px 12px */
+    font-size: 0.8rem !important; /* Reduced from 0.9rem */
+  }
+  
+  /* Adjust avatar size */
+  .avatar {
+    width: 100px !important; /* Reduced from 120px */
+    height: 100px !important; /* Reduced from 120px */
+  }
+  
+  /* Adjust side-by-side layout spacing */
+  .side-by-side {
+    gap: 15px !important; /* Reduced from 20px */
+  }
+}
+
+/* Add these general styles */
+.page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-by-side {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .side-by-side {
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .side-by-side .about {
+    flex: 3;
+  }
+  
+  .side-by-side .education {
+    flex: 2;
+  }
+}
+
+.prev-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .prev-roles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .skills-grid {

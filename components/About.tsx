@@ -1,11 +1,16 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Database, Server, Zap, Smartphone } from 'lucide-react';
+import { Code, Database, Server, Zap, Smartphone, Brain } from 'lucide-react';
 import Image from 'next/image';
 
 export default function About() {
   const skills = [
+    {
+      icon: <Brain className="w-8 h-8 text-pink-500" />,
+      title: 'AI & ML',
+      description: 'LLMs, Ollama, Stable Diffusion, HuggingFace, Langchain, N8N',
+    },
     {
       icon: <Code className="w-8 h-8 text-blue-500" />,
       title: 'Frontend',
@@ -61,6 +66,14 @@ export default function About() {
               complex problems. Specializing in JavaScript ecosystems, I blend technical expertise
               with creative thinking to build applications that not only function flawlessly but
               also delight users with their intuitive design and performance.
+            </p>
+            <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+              Since late 2023, I&apos;ve been deeply fascinated by artificial intelligence and its
+              creative applications. I actively use AI for content creation—generating images,
+              videos, and even music. I&apos;m particularly enthusiastic about working with Open
+              Source LLMs and other language models to enhance my productivity and workflow. This
+              passion has driven me to continuously expand my knowledge in the AI field, with the
+              goal of becoming an AI expert.
             </p>
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
               Beyond coding, I&apos;m an avid marathoner who applies the same discipline and

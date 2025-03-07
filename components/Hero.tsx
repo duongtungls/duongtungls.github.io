@@ -159,9 +159,11 @@ export default function Hero() {
             <div className="relative mb-8">
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Passionate about crafting digital experiences that seamlessly blend form and
-                function. With expertise in full-stack development and a keen eye for detail, I
-                transform complex challenges into elegant, user-centric solutions. My code
-                doesn&apos;t just work—it empowers, innovates, and inspires.
+                function. With expertise in full-stack development, advanced AI integration, and
+                machine learning implementation, I transform complex challenges into elegant,
+                user-centric solutions. My code doesn&apos;t just work—it empowers businesses
+                through intelligent systems, predictive analytics, and natural language processing,
+                delivering smarter applications that adapt and evolve with users&apos; needs.
               </p>
               <div className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full lg:block hidden"></div>
             </div>
