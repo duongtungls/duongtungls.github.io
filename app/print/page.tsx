@@ -62,14 +62,13 @@ export default function PrintResume() {
                 <h1>Duong Cong Tung (Tung Duong)</h1>
                 <h2>Senior Full Stack Developer</h2>
                 <p className="tagline">
-                  Full-stack developer specializing in JavaScript ecosystems with a growing
-                  expertise in AI and machine learning applications. I blend technical knowledge
-                  with creative thinking to build exceptional applications that balance
-                  functionality with intuitive user experiences. My background in mathematics
-                  informs my analytical approach to problem-solving, while the discipline I&apos;ve
-                  developed as a marathon runner helps me tackle complex development challenges with
-                  perseverance and strategic planning. Passionate about leveraging cutting-edge
-                  technologies to create solutions that make a meaningful impact.
+                  Passionate about crafting digital experiences that seamlessly blend form and
+                  function. With expertise in full-stack development, advanced AI integration, and
+                  machine learning implementation, I transform complex challenges into elegant,
+                  user-centric solutions. My code doesn&apos;t just work—it empowers businesses
+                  through intelligent systems, predictive analytics, and natural language
+                  processing, delivering smarter applications that adapt and evolve with users&apos;
+                  needs.
                 </p>
               </div>
             </div>
@@ -118,6 +117,9 @@ export default function PrintResume() {
                 </div>
                 <div className="tech-item">
                   <strong>Database:</strong> MongoDB, PostgreSQL
+                </div>
+                <div className="tech-item">
+                  <strong>Languages:</strong> Vietnamese (Native), Mandarin Chinese, English
                 </div>
               </div>
             </section>

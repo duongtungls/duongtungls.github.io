@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     // Simulate loading completion - will be replaced by actual resource loading
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1200);
   }, []);
 
   return (

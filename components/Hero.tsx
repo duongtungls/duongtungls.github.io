@@ -24,10 +24,15 @@ const ImageStack = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for forwards, -1 for backwards
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+      setCurrentIndex(prevIndex => {
+        const nextIndex = (prevIndex + 1) % images.length;
+        setDirection(1); // Always move forward for auto-rotation
+        return nextIndex;
+      });
     }, 7000);
 
     return () => clearInterval(timer);
@@ -35,35 +40,87 @@ const ImageStack = () => {
 
   return (
     <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-3xl transform rotate-6 opacity-50"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 dark:from-purple-600 dark:to-blue-600 rounded-3xl transform -rotate-6 opacity-50"></div>
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7 }}
-            className="w-full h-full"
-          >
-            <Image
-              src={images[currentIndex]}
-              alt="Duong Cong Tung"
-              width={384}
-              height={384}
-              className="object-cover w-full h-full"
-              priority
-            />
-          </motion.div>
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-600 dark:to-purple-600 rounded-3xl transform rotate-6 opacity-50 shadow-xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 dark:from-purple-600 dark:to-blue-600 rounded-3xl transform -rotate-6 opacity-50 shadow-xl"></div>
+
+      {/* Main card container with perspective */}
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl perspective-500 h-[384px] w-[384px]">
+        {/* Stack of cards */}
+        <AnimatePresence>
+          {images.map((image, index) => {
+            const isActive = index === currentIndex;
+            const isPrevious = index === (currentIndex - 1 + images.length) % images.length;
+            const isNext = index === (currentIndex + 1) % images.length;
+
+            // Skip rendering images that aren't the active, previous, or next ones
+            if (!isActive && !isPrevious && !isNext) return null;
+
+            return (
+              <motion.div
+                key={image}
+                className="absolute inset-0 rounded-2xl overflow-hidden"
+                initial={{
+                  opacity: 0,
+                  rotateY: direction > 0 ? 90 : -90,
+                  scale: 0.8,
+                  zIndex: isActive ? 30 : isPrevious ? 20 : 10,
+                }}
+                animate={{
+                  opacity: isActive ? 1 : isPrevious || isNext ? 0.5 : 0,
+                  rotateY: isActive ? 0 : isPrevious ? -30 : 30,
+                  scale: isActive ? 1 : 0.85,
+                  zIndex: isActive ? 30 : isPrevious ? 20 : 10,
+                  translateX: isActive ? 0 : isPrevious ? '-10%' : '10%',
+                }}
+                exit={{
+                  opacity: 0,
+                  rotateY: direction > 0 ? -90 : 90,
+                  scale: 0.8,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 300,
+                  damping: 30,
+                  duration: 0.7,
+                }}
+              >
+                <Image
+                  src={image}
+                  alt="Duong Cong Tung"
+                  width={384}
+                  height={384}
+                  className="object-cover w-full h-full"
+                  priority={isActive}
+                />
+                {isActive && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/70 to-transparent"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <span className="text-sm font-medium">Duong Cong Tung</span>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
 
         {/* Image indicator dots */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-40">
           {images.map((_, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`w-2 h-2 rounded-full ${currentIndex === index ? 'bg-white' : 'bg-white/50'}`}
+              className={`w-2 h-2 rounded-full cursor-pointer ${currentIndex === index ? 'bg-white' : 'bg-white/50'}`}
+              whileHover={{ scale: 1.2 }}
+              onClick={() => {
+                setDirection(index > currentIndex ? 1 : -1);
+                setCurrentIndex(index);
+              }}
             />
           ))}
         </div>

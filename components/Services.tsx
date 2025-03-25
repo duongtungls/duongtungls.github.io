@@ -88,7 +88,7 @@ export default function Services() {
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-64 h-64 -mt-32 -ml-32 opacity-20">
         <Image
-          src="/hero/tung-photos/02.jpg"
+          src="/hero/tung-photos/02.webp"
           alt="Decorative background"
           width={256}
           height={256}
@@ -96,7 +96,7 @@ export default function Services() {
       </div>
       <div className="absolute bottom-0 right-0 w-64 h-64 -mb-32 -mr-32 opacity-20">
         <Image
-          src="/hero/tung-photos/02.jpg"
+          src="/hero/tung-photos/02.webp"
           alt="Decorative background"
           width={256}
           height={256}

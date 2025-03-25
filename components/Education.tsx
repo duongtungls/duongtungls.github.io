@@ -66,7 +66,7 @@ export default function Education() {
       </div>
       <div className="absolute top-0 left-0 w-64 h-64 -mt-32 -ml-32 opacity-20">
         <Image
-          src="/hero/tung-photos/02.jpg"
+          src="/hero/tung-photos/02.webp"
           alt="Decorative background"
           width={256}
           height={256}

@@ -21,7 +21,7 @@ export default function LoaderComponent() {
         const increment = prevProgress < 70 ? 5 : prevProgress < 90 ? 2 : 0.5;
         return Math.min(prevProgress + increment, 100);
       });
-    }, 80);
+    }, 30);
 
     return () => {
       clearInterval(interval);
