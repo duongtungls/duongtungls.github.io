@@ -1,12 +1,15 @@
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Experience from '@/components/Experience';
-import Skills from '@/components/Skills';
-import Services from '@/components/Services';
-import Projects from '@/components/Projects';
-import Education from '@/components/Education';
-import Contact from '@/components/Contact';
+import dynamic from 'next/dynamic';
 import FloatingNav from '@/components/floating-nav';
+
+// Dynamically import non-critical components
+const About = dynamic(() => import('@/components/About'));
+const Experience = dynamic(() => import('@/components/Experience'));
+const Skills = dynamic(() => import('@/components/Skills'));
+const Services = dynamic(() => import('@/components/Services'));
+const Projects = dynamic(() => import('@/components/Projects'));
+const Education = dynamic(() => import('@/components/Education'));
+const Contact = dynamic(() => import('@/components/Contact'));
 
 export default function Home() {
   return (

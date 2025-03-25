@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF, useAnimations, Grid } from '@react-three/drei';
 import { useRef, useEffect, useState, Suspense } from 'react';
 import * as THREE from 'three';
 
-// Model component that loads and animates the GLB file
+// Simplified model with progressively loading capabilities
 const RunningModel = ({ modelPath }: { modelPath: string }) => {
   const group = useRef<THREE.Group>(null);
   const [animationName, setAnimationName] = useState<string | null>(null);
@@ -49,11 +49,11 @@ const RunningModel = ({ modelPath }: { modelPath: string }) => {
   );
 };
 
-// Moving Grid component that creates the running illusion
+// Simpler version of MovingGrid for better performance
 const MovingGrid = () => {
   const [offset, setOffset] = useState(0);
-  const MOVEMENT_SPEED = 2;
-  const RESET_THRESHOLD = -100; // Reset when we move 1 unit
+  const MOVEMENT_SPEED = 1.5; // Reduced from 2
+  const RESET_THRESHOLD = -100;
 
   // Update grid position on each frame
   useFrame((state, delta) => {
@@ -82,14 +82,29 @@ const MovingGrid = () => {
 };
 
 export default function Background3D() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // Cleanup
+    return () => {
+      setMounted(false);
+    };
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <Canvas
       style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}
       camera={{ position: [5, 2, 5], fov: 50 }}
+      dpr={[1, 1.5]} // Limit pixel ratio for better performance
+      performance={{ min: 0.5 }} // Allow performance optimizations
     >
       {/* Lighting setup for the model */}
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
       {/* Replace static grid with moving grid */}
@@ -97,13 +112,13 @@ export default function Background3D() {
 
       {/* Wrap the model in Suspense to handle loading states */}
       <Suspense fallback={null}>
-        <RunningModel modelPath="/hero/tung-running.glb" />
+        <RunningModel modelPath="/hero/compressed_tung-running.glb" />
       </Suspense>
 
       {/* Camera controls with rotation enabled */}
       <OrbitControls
         enableZoom={false}
-        enablePan={true}
+        enablePan={false}
         enableRotate={true}
         minPolarAngle={Math.PI / 6}
         maxPolarAngle={Math.PI / 2}
@@ -115,4 +130,4 @@ export default function Background3D() {
 }
 
 // Pre-load the model to improve performance
-useGLTF.preload('/hero/tung-running.glb');
+useGLTF.preload('/hero/compressed_tung-running.glb');

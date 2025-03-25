@@ -4,17 +4,23 @@ import Image from 'next/image';
 import { Github, Linkedin, Mail, ArrowDown, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 
-const Background3D = dynamic(() => import('./Background3D'), { ssr: false });
+const Background3D = dynamic(() => import('./Background3D'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900"></div>
+  ),
+});
 
 // Image slider component with animation
 const ImageStack = () => {
   const images = [
-    '/hero/tung-photos/01.jpg',
-    '/hero/tung-photos/02.jpg',
-    '/hero/tung-photos/03.jpg',
+    '/hero/tung-photos/portrait-hero.webp',
+    '/hero/tung-photos/01.webp',
+    '/hero/tung-photos/02.webp',
+    // '/hero/tung-photos/03.webp',
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -123,6 +129,16 @@ const TypingText = ({ texts }: { texts: string[] }) => {
 
 export default function Hero() {
   const typingTexts = ["I'm a full-stack developer", "I'm a mobile developer", "I'm a marathoner"];
+  const [showBackground3D, setShowBackground3D] = useState(false);
+
+  useEffect(() => {
+    // Delay loading the 3D background until after critical content is visible
+    const timer = setTimeout(() => {
+      setShowBackground3D(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -131,7 +147,15 @@ export default function Hero() {
     >
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
-        <Background3D />
+        {showBackground3D && (
+          <Suspense
+            fallback={
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900"></div>
+            }
+          >
+            <Background3D />
+          </Suspense>
+        )}
       </div>
 
       {/* Animated Gradient Overlay */}

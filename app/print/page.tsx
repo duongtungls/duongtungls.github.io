@@ -50,7 +50,7 @@ export default function PrintResume() {
             <div className="profile-section">
               <div className="avatar-container">
                 <Image
-                  src="/hero/tung-photos/portrait.jpg"
+                  src="/hero/tung-photos/portrait-new.webp"
                   alt="Duong Cong Tung"
                   className="avatar"
                   width={120}
