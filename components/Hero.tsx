@@ -45,7 +45,7 @@ const ImageStack = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 dark:from-purple-600 dark:to-blue-600 rounded-3xl transform -rotate-6 opacity-50 shadow-xl"></div>
 
       {/* Main card container with perspective */}
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl perspective-500 h-[384px] w-[384px]">
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl perspective-500 h-[288px] w-[288px] md:h-[384px] md:w-[384px]">
         {/* Stack of cards */}
         <AnimatePresence>
           {images.map((image, index) => {
