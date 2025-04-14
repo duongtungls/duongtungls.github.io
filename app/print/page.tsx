@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import './print-styles.css';
@@ -48,27 +47,13 @@ export default function PrintResume() {
         <header>
           <div className="header-content">
             <div className="profile-section">
-              <div className="avatar-container">
-                <Image
-                  src="/hero/tung-photos/portrait-new.webp"
-                  alt="Duong Cong Tung"
-                  className="avatar"
-                  width={120}
-                  height={120}
-                  priority
-                />
-              </div>
               <div className="profile-info">
                 <h1>Duong Cong Tung (Tung Duong)</h1>
                 <h2>Senior Full Stack Developer</h2>
                 <p className="tagline">
-                  Passionate about crafting digital experiences that seamlessly blend form and
-                  function. With expertise in full-stack development, advanced AI integration, and
-                  machine learning implementation, I transform complex challenges into elegant,
-                  user-centric solutions. My code doesn&apos;t just work—it empowers businesses
-                  through intelligent systems, predictive analytics, and natural language
-                  processing, delivering smarter applications that adapt and evolve with users&apos;
-                  needs.
+                  Full-stack developer with expertise in JavaScript ecosystems, AI integration, and
+                  machine learning implementation. I transform complex challenges into elegant,
+                  user-centric solutions that drive business value through intelligent systems.
                 </p>
               </div>
             </div>
@@ -81,6 +66,12 @@ export default function PrintResume() {
               </div>
               <div>
                 <i className="fas fa-map-marker-alt"></i> Hanoi, Vietnam
+              </div>
+              <div>
+                <i className="fas fa-birthday-cake"></i> September 24, 1991, Soviet Union
+              </div>
+              <div>
+                <i className="fas fa-user"></i> Married
               </div>
               <div>
                 <i className="fab fa-github"></i> duongtungls
@@ -98,13 +89,15 @@ export default function PrintResume() {
               <h2>About Me</h2>
               <p>
                 I&apos;m a full-stack developer with a passion for crafting elegant solutions to
-                complex problems. Specializing in JavaScript ecosystems, I blend technical expertise
-                with creative thinking to build applications that not only function flawlessly but
-                also delight users with their intuitive design and performance.
+                complex problems. Born in Vladimir, Soviet Union and raised in Vietnam, I bring a
+                unique global perspective to my work. Specializing in JavaScript ecosystems and AI
+                integration, I blend technical expertise with creative thinking to build
+                applications that not only function flawlessly but also deliver exceptional user
+                experiences and business value.
               </p>
               <div className="tech-summary">
                 <div className="tech-item">
-                  <strong>AI & ML:</strong> LLMs, Stable Diffusion, Langchain, Ollama
+                  <strong>AI & ML:</strong> LLMs, OpenAI API,Stable Diffusion, Langchain, Ollama
                 </div>
                 <div className="tech-item">
                   <strong>Frontend:</strong> React, Next.js, Redux
@@ -132,12 +125,17 @@ export default function PrintResume() {
                 <div className="edu-date">2009 – 2013</div>
               </div>
 
-              <h2 className="mt-4">Services</h2>
-              <div className="services-list">
-                <div className="service-item">Web Application Development</div>
-                <div className="service-item">Mobile App Development</div>
-                <div className="service-item">Backend Development</div>
-                <div className="service-item">Database Design</div>
+              <h2 className="mt-4">Hobbies</h2>
+              <div className="hobbies-list">
+                <div className="hobby-item">
+                  <i className="fas fa-running"></i> Marathon Running
+                </div>
+                <div className="hobby-item">
+                  <i className="fas fa-laptop-code"></i> Coding
+                </div>
+                <div className="hobby-item">
+                  <i className="fas fa-book"></i> Reading
+                </div>
               </div>
             </section>
           </div>
@@ -147,7 +145,7 @@ export default function PrintResume() {
             <div className="skills-grid">
               <div className="skill-category">
                 <h3>AI & Machine Learning</h3>
-                <p>Ollama, LLMs, Stable Diffusion, HuggingFace, Langchain, N8N</p>
+                <p>OpenAI API,Ollama, LLMs, Stable Diffusion, HuggingFace, Langchain, N8N</p>
               </div>
               <div className="skill-category">
                 <h3>Frontend Development</h3>
@@ -163,7 +161,7 @@ export default function PrintResume() {
               </div>
               <div className="skill-category">
                 <h3>Database Management</h3>
-                <p>MongoDB, PostgreSQL, MySQL</p>
+                <p>MongoDB, PostgreSQL, MySQL, Supabase</p>
               </div>
               <div className="skill-category">
                 <h3>TypeScript/JavaScript</h3>
@@ -197,9 +195,16 @@ export default function PrintResume() {
                 <h3>Senior Full-stack Developer</h3>
                 <h4>Amplifi & Impact Ltd</h4>
                 <ul>
-                  <li>Leading full-stack development projects</li>
-                  <li>Architecting scalable web applications</li>
-                  <li>Implementing modern frontend frameworks and backend technologies</li>
+                  <li>
+                    Leading full-stack development for client projects, increasing development
+                    efficiency by 35%
+                  </li>
+                  <li>Architecting scalable web applications serving 100K+ monthly users</li>
+                  <li>
+                    Implementing modern frontend frameworks and backend technologies with CI/CD
+                    pipelines
+                  </li>
+                  <li>Mentoring junior developers and conducting technical interviews</li>
                 </ul>
               </div>
             </div>
