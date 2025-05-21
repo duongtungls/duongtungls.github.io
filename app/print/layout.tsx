@@ -3,7 +3,7 @@ import Script from 'next/script';
 import './print-styles.css'; // Updated import path
 
 export const metadata: Metadata = {
-  title: 'Duong Cong Tung - Printable Resume',
+  title: 'Duong Cong Tung - Fullstack Developer Resume',
   description: 'Professional resume of Duong Cong Tung, Senior Full Stack Developer',
 };
 
