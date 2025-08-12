@@ -35,7 +35,7 @@ const skills = [
   {
     icon: Code,
     name: 'Frontend Development',
-    tech: 'React.js, Next.js, Redux',
+    tech: 'React.js, Next.js, Redux, Three.js',
     description:
       'Building responsive and interactive web applications with modern React ecosystem and server-side rendering for optimal performance.',
     color: 'text-blue-500',

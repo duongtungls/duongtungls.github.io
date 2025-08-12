@@ -14,7 +14,7 @@ export default function About() {
     {
       icon: <Code className="w-8 h-8 text-blue-500" />,
       title: 'Frontend',
-      description: 'React, Next.js, Redux',
+      description: 'React, Next.js, Redux, Three.js',
     },
     {
       icon: <Server className="w-8 h-8 text-green-500" />,

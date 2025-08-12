@@ -37,6 +37,8 @@ const projects: Project[] = [
       'Node.js',
       'Next.js',
       'Express.js',
+      'Three.js',
+      'Fabric.js',
       'AWS',
       'Cloud Architecture',
       'Engineering Calculations',

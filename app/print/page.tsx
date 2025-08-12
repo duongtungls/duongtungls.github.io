@@ -100,7 +100,7 @@ export default function PrintResume() {
                   <strong>AI & ML:</strong> LLMs, OpenAI API,Stable Diffusion, Langchain, Ollama
                 </div>
                 <div className="tech-item">
-                  <strong>Frontend:</strong> React, Next.js, Redux
+                  <strong>Frontend:</strong> React, Next.js, Redux, Three.js
                 </div>
                 <div className="tech-item">
                   <strong>Backend:</strong> Node.js, Express, Laravel
@@ -149,7 +149,7 @@ export default function PrintResume() {
               </div>
               <div className="skill-category">
                 <h3>Frontend Development</h3>
-                <p>React.js, Next.js, Redux</p>
+                <p>React.js, Next.js, Redux, Three.js</p>
               </div>
               <div className="skill-category">
                 <h3>Backend Development</h3>
