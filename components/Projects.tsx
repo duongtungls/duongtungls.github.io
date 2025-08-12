@@ -27,6 +27,18 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 24,
+    title: 'RunningMates AI',
+    description:
+      'Side project: AI-powered running coach that delivers personalized training plans and actionable insights.',
+    image: '/projects/runningmates-ai.webp',
+    technologies: ['Next.js', 'React.js', 'TypeScript', 'Tailwind CSS', 'Langchain', 'OpenAI API'],
+    liveUrl: 'https://www.runningmates.ai/',
+    period: 'Mar 2025 - Present',
+    longDescription:
+      'RunningMates AI is my personal side project—an intelligent running companion that helps athletes prepare and improve with adaptive training plans, session analysis, and guidance tailored to individual goals. The platform leverages large language models for conversational coaching and blends structured workouts with real-time insights to keep runners engaged and progressing across training cycles.',
+  },
+  {
     id: 22,
     title: 'ACADS-BSG HYENA+',
     description: 'Cloud-based hydraulic calculation software for fire protection systems',
